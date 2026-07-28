@@ -1,0 +1,77 @@
+[2026-07-28 22:47:18] ENGINE STARTED: Entering render loop (Good SD Server backend).
+[2026-07-28 22:47:18] Sending generation request (Frame 0) to http://127.0.0.1:5000
+[2026-07-28 22:49:16] landscape.py
+[2026-07-28 22:49:16] Len Prompt: 33
+[2026-07-28 22:49:26] Error fetching models from http://127.0.0.1:5000: HTTPConnectionPool(host='127.0.0.1', port=5000): Read timed out. (read timeout=10)
+[2026-07-28 22:49:58] ENGINE STARTED: Entering render loop (Good SD Server backend).
+[2026-07-28 22:49:58] Sending generation request (Frame 0) to http://127.0.0.1:5000
+[2026-07-28 22:58:46] Sending generation request (Frame 1) to http://127.0.0.1:5000
+[2026-07-28 22:59:58] Sending generation request (Frame 2) to http://127.0.0.1:5000
+[2026-07-28 23:01:08] Sending generation request (Frame 3) to http://127.0.0.1:5000
+[2026-07-28 23:02:17] Sending generation request (Frame 4) to http://127.0.0.1:5000
+[2026-07-28 23:03:26] Sending generation request (Frame 5) to http://127.0.0.1:5000
+[2026-07-28 23:04:36] Sending generation request (Frame 6) to http://127.0.0.1:5000
+[2026-07-28 23:05:45] Sending generation request (Frame 7) to http://127.0.0.1:5000
+[2026-07-28 23:06:54] Sending generation request (Frame 8) to http://127.0.0.1:5000
+[2026-07-28 23:08:04] Sending generation request (Frame 9) to http://127.0.0.1:5000
+[2026-07-28 23:09:13] Sending generation request (Frame 10) to http://127.0.0.1:5000
+[2026-07-28 23:10:23] Sending generation request (Frame 11) to http://127.0.0.1:5000
+[2026-07-28 23:11:33] Sending generation request (Frame 12) to http://127.0.0.1:5000
+[2026-07-28 23:12:44] Sending generation request (Frame 13) to http://127.0.0.1:5000
+[2026-07-28 23:13:53] Sending generation request (Frame 14) to http://127.0.0.1:5000
+[2026-07-28 23:15:04] Sending generation request (Frame 15) to http://127.0.0.1:5000
+[2026-07-28 23:16:14] Sending generation request (Frame 16) to http://127.0.0.1:5000
+[2026-07-28 23:17:24] Sending generation request (Frame 17) to http://127.0.0.1:5000
+[2026-07-28 23:18:34] Sending generation request (Frame 18) to http://127.0.0.1:5000
+[2026-07-28 23:19:44] Sending generation request (Frame 19) to http://127.0.0.1:5000
+[2026-07-28 23:20:53] Sending generation request (Frame 20) to http://127.0.0.1:5000
+[2026-07-28 23:23:19] Sending generation request (Frame 21) to http://127.0.0.1:5000
+[2026-07-28 23:25:57] Sending generation request (Frame 22) to http://127.0.0.1:5000
+[2026-07-28 23:28:35] Sending generation request (Frame 23) to http://127.0.0.1:5000
+[2026-07-28 23:29:44] Sending generation request (Frame 24) to http://127.0.0.1:5000
+[2026-07-28 23:30:56] Sending generation request (Frame 25) to http://127.0.0.1:5000
+[2026-07-28 23:32:20] Sending generation request (Frame 26) to http://127.0.0.1:5000
+[2026-07-28 23:33:42] Sending generation request (Frame 27) to http://127.0.0.1:5000
+[2026-07-28 23:35:06] Sending generation request (Frame 28) to http://127.0.0.1:5000
+[2026-07-28 23:36:28] Sending generation request (Frame 29) to http://127.0.0.1:5000
+[2026-07-28 23:37:51] Sending generation request (Frame 30) to http://127.0.0.1:5000
+[2026-07-28 23:39:14] Sending generation request (Frame 31) to http://127.0.0.1:5000
+[2026-07-28 23:40:37] Sending generation request (Frame 32) to http://127.0.0.1:5000
+[2026-07-28 23:42:00] Sending generation request (Frame 33) to http://127.0.0.1:5000
+[2026-07-28 23:43:23] Sending generation request (Frame 34) to http://127.0.0.1:5000
+[2026-07-28 23:44:46] Sending generation request (Frame 35) to http://127.0.0.1:5000
+[2026-07-28 23:46:09] Sending generation request (Frame 36) to http://127.0.0.1:5000
+[2026-07-28 23:47:31] Sending generation request (Frame 37) to http://127.0.0.1:5000
+[2026-07-28 23:48:55] Sending generation request (Frame 38) to http://127.0.0.1:5000
+[2026-07-28 23:50:17] Sending generation request (Frame 39) to http://127.0.0.1:5000
+[2026-07-28 23:51:40] Sending generation request (Frame 40) to http://127.0.0.1:5000
+[2026-07-28 23:53:01] Sending generation request (Frame 41) to http://127.0.0.1:5000
+[2026-07-28 23:54:24] Sending generation request (Frame 42) to http://127.0.0.1:5000
+[2026-07-28 23:56:12] Sending generation request (Frame 43) to http://127.0.0.1:5000
+[2026-07-28 23:58:24] Sending generation request (Frame 44) to http://127.0.0.1:5000
+[2026-07-29 00:00:36] Sending generation request (Frame 45) to http://127.0.0.1:5000
+[2026-07-29 00:02:23] Sending generation request (Frame 46) to http://127.0.0.1:5000
+[2026-07-29 00:04:11] Sending generation request (Frame 47) to http://127.0.0.1:5000
+[2026-07-29 00:05:09] Sending generation request (Frame 48) to http://127.0.0.1:5000
+[2026-07-29 00:06:08] Sending generation request (Frame 49) to http://127.0.0.1:5000
+[2026-07-29 00:07:06] Sending generation request (Frame 50) to http://127.0.0.1:5000
+[2026-07-29 00:08:03] Sending generation request (Frame 51) to http://127.0.0.1:5000
+[2026-07-29 00:09:01] Sending generation request (Frame 52) to http://127.0.0.1:5000
+[2026-07-29 00:09:58] Sending generation request (Frame 53) to http://127.0.0.1:5000
+[2026-07-29 00:10:56] Sending generation request (Frame 54) to http://127.0.0.1:5000
+[2026-07-29 00:11:54] Sending generation request (Frame 55) to http://127.0.0.1:5000
+[2026-07-29 00:12:51] Sending generation request (Frame 56) to http://127.0.0.1:5000
+[2026-07-29 00:13:48] Sending generation request (Frame 57) to http://127.0.0.1:5000
+[2026-07-29 00:14:46] Sending generation request (Frame 58) to http://127.0.0.1:5000
+[2026-07-29 00:15:57] Sending generation request (Frame 59) to http://127.0.0.1:5000
+[2026-07-29 05:47:42] ENGINE STARTED: Entering render loop (Good SD Server backend).
+[2026-07-29 05:47:42] Resume: Detected frame 59 on disk. Starting at 60
+[2026-07-29 05:47:42] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-29 06:05:25] Error generating frame 60: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-29 06:05:29] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-29 06:05:32] Error generating frame 60: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-29 06:05:35] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-29 06:05:35] Error generating frame 60: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-29 06:05:47] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-29 06:05:47] Error generating frame 60: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-29 06:06:00] Sending generation request (Frame 60) to http://127.0.0.1:5000
