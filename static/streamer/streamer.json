@@ -1,5 +1,5 @@
 {
-  "current_frame": 293,
+  "current_frame": 313,
   "frames_total": 500,
   "seed": 123453,
   "prompt": "A dreamy, ethereal star-gate glows with soft, luminescent tendrils, suspended amidst a swirling vortex of stardust and cosmic debris. Semi-transparent, iridescent creatures \u2013 reminiscent of mythical sea monsters \u2013 dart and weave through the gateway's shimmering aura, their scales reflecting hues of sapphire, amethyst, and rose gold. Nebulae and planetary wisps dance in the background, as distant stars twinkle like diamonds against a velvety blackness.",
@@ -31,7 +31,7 @@
   "py_s": 0.5,
   "py_e": 0.5,
   "roll_mode": "none",
-  "steps": 7,
+  "steps": 9,
   "cfg": 1.3,
   "logo_filename": "None",
   "logo_x": 0,

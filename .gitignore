@@ -14,5 +14,5 @@ config.json
 *.tmp
 .DS_Store
 Thumbs.db
-venv/*
-venv/*
+venv/
+.venv/
