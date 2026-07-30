@@ -1,1 +1,1 @@
-/home/jack/Desktop/Kokoro-TTS-Pause/venv/bin/python good_sd_server.py --model /media/jack/9930-14E11/ComfyUI/models/checkpoints/
+/home/jack/Desktop/Kokoro-TTS-Pause/venv/bin/python SDserver.py --model /media/jack/9930-14E11/ComfyUI/models/checkpoints/

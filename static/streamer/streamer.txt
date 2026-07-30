@@ -75,3 +75,644 @@
 [2026-07-29 06:05:47] Sending generation request (Frame 60) to http://127.0.0.1:5000
 [2026-07-29 06:05:47] Error generating frame 60: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
 [2026-07-29 06:06:00] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-30 07:29:20] landscape.py
+[2026-07-30 07:29:20] Len Prompt: 33
+[2026-07-30 07:30:24] ENGINE STARTED: Entering render loop (Good SD Server backend).
+[2026-07-30 07:30:24] Resume: Detected frame 0 on disk. Starting at 1
+[2026-07-30 07:30:24] Sending generation request (Frame 1) to http://127.0.0.1:5000
+[2026-07-30 07:33:51] Sending generation request (Frame 2) to http://127.0.0.1:5000
+[2026-07-30 07:34:57] Sending generation request (Frame 3) to http://127.0.0.1:5000
+[2026-07-30 07:36:04] Sending generation request (Frame 4) to http://127.0.0.1:5000
+[2026-07-30 07:38:15] Sending generation request (Frame 5) to http://127.0.0.1:5000
+[2026-07-30 07:39:57] Sending generation request (Frame 6) to http://127.0.0.1:5000
+[2026-07-30 07:41:38] Sending generation request (Frame 7) to http://127.0.0.1:5000
+[2026-07-30 07:42:54] Sending generation request (Frame 8) to http://127.0.0.1:5000
+[2026-07-30 07:43:39] Sending generation request (Frame 9) to http://127.0.0.1:5000
+[2026-07-30 07:44:24] Sending generation request (Frame 10) to http://127.0.0.1:5000
+[2026-07-30 07:45:07] Sending generation request (Frame 11) to http://127.0.0.1:5000
+[2026-07-30 07:45:52] Sending generation request (Frame 12) to http://127.0.0.1:5000
+[2026-07-30 07:46:48] Sending generation request (Frame 13) to http://127.0.0.1:5000
+[2026-07-30 07:47:43] Sending generation request (Frame 14) to http://127.0.0.1:5000
+[2026-07-30 07:48:39] Sending generation request (Frame 15) to http://127.0.0.1:5000
+[2026-07-30 07:49:23] Sending generation request (Frame 16) to http://127.0.0.1:5000
+[2026-07-30 07:50:07] Sending generation request (Frame 17) to http://127.0.0.1:5000
+[2026-07-30 07:50:53] Sending generation request (Frame 18) to http://127.0.0.1:5000
+[2026-07-30 07:51:36] Sending generation request (Frame 19) to http://127.0.0.1:5000
+[2026-07-30 07:52:32] Sending generation request (Frame 20) to http://127.0.0.1:5000
+[2026-07-30 07:53:17] Sending generation request (Frame 21) to http://127.0.0.1:5000
+[2026-07-30 07:54:02] Sending generation request (Frame 22) to http://127.0.0.1:5000
+[2026-07-30 07:54:45] Sending generation request (Frame 23) to http://127.0.0.1:5000
+[2026-07-30 07:55:29] Sending generation request (Frame 24) to http://127.0.0.1:5000
+[2026-07-30 07:56:48] Sending generation request (Frame 25) to http://127.0.0.1:5000
+[2026-07-30 07:57:31] Sending generation request (Frame 26) to http://127.0.0.1:5000
+[2026-07-30 07:58:16] Sending generation request (Frame 27) to http://127.0.0.1:5000
+[2026-07-30 07:58:49] Sending generation request (Frame 28) to http://127.0.0.1:5000
+[2026-07-30 07:59:23] Sending generation request (Frame 29) to http://127.0.0.1:5000
+[2026-07-30 07:59:56] Sending generation request (Frame 30) to http://127.0.0.1:5000
+[2026-07-30 08:00:29] Sending generation request (Frame 31) to http://127.0.0.1:5000
+[2026-07-30 08:01:03] Sending generation request (Frame 32) to http://127.0.0.1:5000
+[2026-07-30 08:01:37] Sending generation request (Frame 33) to http://127.0.0.1:5000
+[2026-07-30 08:02:09] Sending generation request (Frame 34) to http://127.0.0.1:5000
+[2026-07-30 08:03:12] Sending generation request (Frame 35) to http://127.0.0.1:5000
+[2026-07-30 08:03:44] Sending generation request (Frame 36) to http://127.0.0.1:5000
+[2026-07-30 08:04:18] Sending generation request (Frame 37) to http://127.0.0.1:5000
+[2026-07-30 08:04:51] Sending generation request (Frame 38) to http://127.0.0.1:5000
+[2026-07-30 08:05:24] Sending generation request (Frame 39) to http://127.0.0.1:5000
+[2026-07-30 08:05:57] Sending generation request (Frame 40) to http://127.0.0.1:5000
+[2026-07-30 08:06:30] Sending generation request (Frame 41) to http://127.0.0.1:5000
+[2026-07-30 08:07:03] Sending generation request (Frame 42) to http://127.0.0.1:5000
+[2026-07-30 08:07:37] Sending generation request (Frame 43) to http://127.0.0.1:5000
+[2026-07-30 08:08:09] Sending generation request (Frame 44) to http://127.0.0.1:5000
+[2026-07-30 08:08:43] Sending generation request (Frame 45) to http://127.0.0.1:5000
+[2026-07-30 08:09:16] Sending generation request (Frame 46) to http://127.0.0.1:5000
+[2026-07-30 08:09:49] Sending generation request (Frame 47) to http://127.0.0.1:5000
+[2026-07-30 08:10:22] Sending generation request (Frame 48) to http://127.0.0.1:5000
+[2026-07-30 08:10:54] Sending generation request (Frame 49) to http://127.0.0.1:5000
+[2026-07-30 08:11:27] Sending generation request (Frame 50) to http://127.0.0.1:5000
+[2026-07-30 08:11:59] Sending generation request (Frame 51) to http://127.0.0.1:5000
+[2026-07-30 08:12:32] Sending generation request (Frame 52) to http://127.0.0.1:5000
+[2026-07-30 08:13:05] Sending generation request (Frame 53) to http://127.0.0.1:5000
+[2026-07-30 08:13:37] Sending generation request (Frame 54) to http://127.0.0.1:5000
+[2026-07-30 08:14:10] Sending generation request (Frame 55) to http://127.0.0.1:5000
+[2026-07-30 08:14:44] Sending generation request (Frame 56) to http://127.0.0.1:5000
+[2026-07-30 08:15:15] Sending generation request (Frame 57) to http://127.0.0.1:5000
+[2026-07-30 08:15:49] Sending generation request (Frame 58) to http://127.0.0.1:5000
+[2026-07-30 08:16:23] Sending generation request (Frame 59) to http://127.0.0.1:5000
+[2026-07-30 08:16:56] Sending generation request (Frame 60) to http://127.0.0.1:5000
+[2026-07-30 08:17:29] Sending generation request (Frame 61) to http://127.0.0.1:5000
+[2026-07-30 08:18:04] Sending generation request (Frame 62) to http://127.0.0.1:5000
+[2026-07-30 08:18:39] Sending generation request (Frame 63) to http://127.0.0.1:5000
+[2026-07-30 08:19:12] Sending generation request (Frame 64) to http://127.0.0.1:5000
+[2026-07-30 08:19:45] Sending generation request (Frame 65) to http://127.0.0.1:5000
+[2026-07-30 08:20:18] Sending generation request (Frame 66) to http://127.0.0.1:5000
+[2026-07-30 08:20:51] Sending generation request (Frame 67) to http://127.0.0.1:5000
+[2026-07-30 08:21:24] Sending generation request (Frame 68) to http://127.0.0.1:5000
+[2026-07-30 08:22:01] Sending generation request (Frame 69) to http://127.0.0.1:5000
+[2026-07-30 08:22:34] Sending generation request (Frame 70) to http://127.0.0.1:5000
+[2026-07-30 08:23:08] Sending generation request (Frame 71) to http://127.0.0.1:5000
+[2026-07-30 08:23:42] Sending generation request (Frame 72) to http://127.0.0.1:5000
+[2026-07-30 08:24:15] Sending generation request (Frame 73) to http://127.0.0.1:5000
+[2026-07-30 08:24:46] Sending generation request (Frame 74) to http://127.0.0.1:5000
+[2026-07-30 08:25:19] Sending generation request (Frame 75) to http://127.0.0.1:5000
+[2026-07-30 08:25:51] Sending generation request (Frame 76) to http://127.0.0.1:5000
+[2026-07-30 08:26:25] Sending generation request (Frame 77) to http://127.0.0.1:5000
+[2026-07-30 08:26:58] Sending generation request (Frame 78) to http://127.0.0.1:5000
+[2026-07-30 08:27:31] Sending generation request (Frame 79) to http://127.0.0.1:5000
+[2026-07-30 08:28:05] Sending generation request (Frame 80) to http://127.0.0.1:5000
+[2026-07-30 08:28:37] Sending generation request (Frame 81) to http://127.0.0.1:5000
+[2026-07-30 08:29:11] Sending generation request (Frame 82) to http://127.0.0.1:5000
+[2026-07-30 08:29:44] Sending generation request (Frame 83) to http://127.0.0.1:5000
+[2026-07-30 08:30:16] Sending generation request (Frame 84) to http://127.0.0.1:5000
+[2026-07-30 08:30:50] Sending generation request (Frame 85) to http://127.0.0.1:5000
+[2026-07-30 08:31:23] Sending generation request (Frame 86) to http://127.0.0.1:5000
+[2026-07-30 08:31:56] Sending generation request (Frame 87) to http://127.0.0.1:5000
+[2026-07-30 08:32:30] Sending generation request (Frame 88) to http://127.0.0.1:5000
+[2026-07-30 08:33:02] Sending generation request (Frame 89) to http://127.0.0.1:5000
+[2026-07-30 08:33:36] Sending generation request (Frame 90) to http://127.0.0.1:5000
+[2026-07-30 08:34:10] Sending generation request (Frame 91) to http://127.0.0.1:5000
+[2026-07-30 08:34:43] Sending generation request (Frame 92) to http://127.0.0.1:5000
+[2026-07-30 08:35:16] Sending generation request (Frame 93) to http://127.0.0.1:5000
+[2026-07-30 08:35:50] Sending generation request (Frame 94) to http://127.0.0.1:5000
+[2026-07-30 08:36:24] Sending generation request (Frame 95) to http://127.0.0.1:5000
+[2026-07-30 08:36:57] Sending generation request (Frame 96) to http://127.0.0.1:5000
+[2026-07-30 08:37:30] Sending generation request (Frame 97) to http://127.0.0.1:5000
+[2026-07-30 08:38:03] Sending generation request (Frame 98) to http://127.0.0.1:5000
+[2026-07-30 08:38:36] Sending generation request (Frame 99) to http://127.0.0.1:5000
+[2026-07-30 08:39:08] Sending generation request (Frame 100) to http://127.0.0.1:5000
+[2026-07-30 08:39:42] Sending generation request (Frame 101) to http://127.0.0.1:5000
+[2026-07-30 08:40:16] Sending generation request (Frame 102) to http://127.0.0.1:5000
+[2026-07-30 08:40:49] Sending generation request (Frame 103) to http://127.0.0.1:5000
+[2026-07-30 08:41:23] Sending generation request (Frame 104) to http://127.0.0.1:5000
+[2026-07-30 08:41:56] Sending generation request (Frame 105) to http://127.0.0.1:5000
+[2026-07-30 08:42:30] Sending generation request (Frame 106) to http://127.0.0.1:5000
+[2026-07-30 08:43:03] Sending generation request (Frame 107) to http://127.0.0.1:5000
+[2026-07-30 08:43:37] Sending generation request (Frame 108) to http://127.0.0.1:5000
+[2026-07-30 08:44:10] Sending generation request (Frame 109) to http://127.0.0.1:5000
+[2026-07-30 08:44:43] Sending generation request (Frame 110) to http://127.0.0.1:5000
+[2026-07-30 08:45:16] Sending generation request (Frame 111) to http://127.0.0.1:5000
+[2026-07-30 08:45:51] Sending generation request (Frame 112) to http://127.0.0.1:5000
+[2026-07-30 08:46:36] Sending generation request (Frame 113) to http://127.0.0.1:5000
+[2026-07-30 08:47:29] Sending generation request (Frame 114) to http://127.0.0.1:5000
+[2026-07-30 08:48:16] Sending generation request (Frame 115) to http://127.0.0.1:5000
+[2026-07-30 08:49:06] Sending generation request (Frame 116) to http://127.0.0.1:5000
+[2026-07-30 08:49:54] Sending generation request (Frame 117) to http://127.0.0.1:5000
+[2026-07-30 08:50:44] Sending generation request (Frame 118) to http://127.0.0.1:5000
+[2026-07-30 08:51:31] Sending generation request (Frame 119) to http://127.0.0.1:5000
+[2026-07-30 08:52:18] Sending generation request (Frame 120) to http://127.0.0.1:5000
+[2026-07-30 08:53:07] Sending generation request (Frame 121) to http://127.0.0.1:5000
+[2026-07-30 08:53:59] Sending generation request (Frame 122) to http://127.0.0.1:5000
+[2026-07-30 08:54:44] Sending generation request (Frame 123) to http://127.0.0.1:5000
+[2026-07-30 08:55:32] Sending generation request (Frame 124) to http://127.0.0.1:5000
+[2026-07-30 08:56:19] Sending generation request (Frame 125) to http://127.0.0.1:5000
+[2026-07-30 08:57:08] Sending generation request (Frame 126) to http://127.0.0.1:5000
+[2026-07-30 08:57:51] Sending generation request (Frame 127) to http://127.0.0.1:5000
+[2026-07-30 08:58:49] Sending generation request (Frame 128) to http://127.0.0.1:5000
+[2026-07-30 08:59:46] Sending generation request (Frame 129) to http://127.0.0.1:5000
+[2026-07-30 09:00:48] Sending generation request (Frame 130) to http://127.0.0.1:5000
+[2026-07-30 09:01:47] Sending generation request (Frame 131) to http://127.0.0.1:5000
+[2026-07-30 09:02:44] Sending generation request (Frame 132) to http://127.0.0.1:5000
+[2026-07-30 09:03:38] Sending generation request (Frame 133) to http://127.0.0.1:5000
+[2026-07-30 09:04:30] Sending generation request (Frame 134) to http://127.0.0.1:5000
+[2026-07-30 09:05:29] Sending generation request (Frame 135) to http://127.0.0.1:5000
+[2026-07-30 09:06:23] Sending generation request (Frame 136) to http://127.0.0.1:5000
+[2026-07-30 09:07:19] Sending generation request (Frame 137) to http://127.0.0.1:5000
+[2026-07-30 09:08:18] Sending generation request (Frame 138) to http://127.0.0.1:5000
+[2026-07-30 09:09:12] Sending generation request (Frame 139) to http://127.0.0.1:5000
+[2026-07-30 09:10:09] Sending generation request (Frame 140) to http://127.0.0.1:5000
+[2026-07-30 09:11:06] Sending generation request (Frame 141) to http://127.0.0.1:5000
+[2026-07-30 09:12:06] Sending generation request (Frame 142) to http://127.0.0.1:5000
+[2026-07-30 09:13:03] Sending generation request (Frame 143) to http://127.0.0.1:5000
+[2026-07-30 09:13:59] Sending generation request (Frame 144) to http://127.0.0.1:5000
+[2026-07-30 09:14:59] Sending generation request (Frame 145) to http://127.0.0.1:5000
+[2026-07-30 09:15:56] Sending generation request (Frame 146) to http://127.0.0.1:5000
+[2026-07-30 09:16:55] Sending generation request (Frame 147) to http://127.0.0.1:5000
+[2026-07-30 09:17:49] Sending generation request (Frame 148) to http://127.0.0.1:5000
+[2026-07-30 09:18:41] Sending generation request (Frame 149) to http://127.0.0.1:5000
+[2026-07-30 09:19:44] Sending generation request (Frame 150) to http://127.0.0.1:5000
+[2026-07-30 09:20:40] Sending generation request (Frame 151) to http://127.0.0.1:5000
+[2026-07-30 09:21:37] Sending generation request (Frame 152) to http://127.0.0.1:5000
+[2026-07-30 09:22:21] Sending generation request (Frame 153) to http://127.0.0.1:5000
+[2026-07-30 09:23:05] Sending generation request (Frame 154) to http://127.0.0.1:5000
+[2026-07-30 09:23:42] Sending generation request (Frame 155) to http://127.0.0.1:5000
+[2026-07-30 09:24:20] Sending generation request (Frame 156) to http://127.0.0.1:5000
+[2026-07-30 09:24:58] Sending generation request (Frame 157) to http://127.0.0.1:5000
+[2026-07-30 09:25:37] Sending generation request (Frame 158) to http://127.0.0.1:5000
+[2026-07-30 09:26:14] Sending generation request (Frame 159) to http://127.0.0.1:5000
+[2026-07-30 09:26:52] Sending generation request (Frame 160) to http://127.0.0.1:5000
+[2026-07-30 09:27:31] Sending generation request (Frame 161) to http://127.0.0.1:5000
+[2026-07-30 09:28:11] Sending generation request (Frame 162) to http://127.0.0.1:5000
+[2026-07-30 09:28:49] Sending generation request (Frame 163) to http://127.0.0.1:5000
+[2026-07-30 09:29:27] Sending generation request (Frame 164) to http://127.0.0.1:5000
+[2026-07-30 09:30:05] Sending generation request (Frame 165) to http://127.0.0.1:5000
+[2026-07-30 09:30:43] Sending generation request (Frame 166) to http://127.0.0.1:5000
+[2026-07-30 09:31:21] Sending generation request (Frame 167) to http://127.0.0.1:5000
+[2026-07-30 09:32:00] Sending generation request (Frame 168) to http://127.0.0.1:5000
+[2026-07-30 09:32:38] Sending generation request (Frame 169) to http://127.0.0.1:5000
+[2026-07-30 09:33:16] Sending generation request (Frame 170) to http://127.0.0.1:5000
+[2026-07-30 09:33:54] Sending generation request (Frame 171) to http://127.0.0.1:5000
+[2026-07-30 09:34:34] Sending generation request (Frame 172) to http://127.0.0.1:5000
+[2026-07-30 09:35:11] Sending generation request (Frame 173) to http://127.0.0.1:5000
+[2026-07-30 09:35:51] Sending generation request (Frame 174) to http://127.0.0.1:5000
+[2026-07-30 09:36:34] Sending generation request (Frame 175) to http://127.0.0.1:5000
+[2026-07-30 09:37:33] Sending generation request (Frame 176) to http://127.0.0.1:5000
+[2026-07-30 09:38:50] Sending generation request (Frame 177) to http://127.0.0.1:5000
+[2026-07-30 09:40:04] Sending generation request (Frame 178) to http://127.0.0.1:5000
+[2026-07-30 09:41:21] Sending generation request (Frame 179) to http://127.0.0.1:5000
+[2026-07-30 09:42:37] Sending generation request (Frame 180) to http://127.0.0.1:5000
+[2026-07-30 09:43:53] Sending generation request (Frame 181) to http://127.0.0.1:5000
+[2026-07-30 09:45:10] Sending generation request (Frame 182) to http://127.0.0.1:5000
+[2026-07-30 09:46:23] Sending generation request (Frame 183) to http://127.0.0.1:5000
+[2026-07-30 09:47:38] Sending generation request (Frame 184) to http://127.0.0.1:5000
+[2026-07-30 09:48:39] Sending generation request (Frame 185) to http://127.0.0.1:5000
+[2026-07-30 09:49:31] Sending generation request (Frame 186) to http://127.0.0.1:5000
+[2026-07-30 09:50:25] Sending generation request (Frame 187) to http://127.0.0.1:5000
+[2026-07-30 09:51:16] Sending generation request (Frame 188) to http://127.0.0.1:5000
+[2026-07-30 09:52:08] Sending generation request (Frame 189) to http://127.0.0.1:5000
+[2026-07-30 09:53:00] Sending generation request (Frame 190) to http://127.0.0.1:5000
+[2026-07-30 09:53:51] Sending generation request (Frame 191) to http://127.0.0.1:5000
+[2026-07-30 09:54:42] Sending generation request (Frame 192) to http://127.0.0.1:5000
+[2026-07-30 09:55:33] Sending generation request (Frame 193) to http://127.0.0.1:5000
+[2026-07-30 09:56:26] Sending generation request (Frame 194) to http://127.0.0.1:5000
+[2026-07-30 09:57:17] Sending generation request (Frame 195) to http://127.0.0.1:5000
+[2026-07-30 09:58:07] Sending generation request (Frame 196) to http://127.0.0.1:5000
+[2026-07-30 09:58:58] Sending generation request (Frame 197) to http://127.0.0.1:5000
+[2026-07-30 09:59:49] Sending generation request (Frame 198) to http://127.0.0.1:5000
+[2026-07-30 10:00:40] Sending generation request (Frame 199) to http://127.0.0.1:5000
+[2026-07-30 10:01:30] Sending generation request (Frame 200) to http://127.0.0.1:5000
+[2026-07-30 10:02:39] Sending generation request (Frame 201) to http://127.0.0.1:5000
+[2026-07-30 10:03:53] Sending generation request (Frame 202) to http://127.0.0.1:5000
+[2026-07-30 10:05:09] Sending generation request (Frame 203) to http://127.0.0.1:5000
+[2026-07-30 10:06:23] Sending generation request (Frame 204) to http://127.0.0.1:5000
+[2026-07-30 10:07:42] Sending generation request (Frame 205) to http://127.0.0.1:5000
+[2026-07-30 10:08:56] Sending generation request (Frame 206) to http://127.0.0.1:5000
+[2026-07-30 10:10:05] Sending generation request (Frame 207) to http://127.0.0.1:5000
+[2026-07-30 10:11:30] Sending generation request (Frame 208) to http://127.0.0.1:5000
+[2026-07-30 10:12:40] Sending generation request (Frame 209) to http://127.0.0.1:5000
+[2026-07-30 10:13:54] Sending generation request (Frame 210) to http://127.0.0.1:5000
+[2026-07-30 10:14:46] Sending generation request (Frame 211) to http://127.0.0.1:5000
+[2026-07-30 10:15:37] Sending generation request (Frame 212) to http://127.0.0.1:5000
+[2026-07-30 10:16:30] Sending generation request (Frame 213) to http://127.0.0.1:5000
+[2026-07-30 10:17:21] Sending generation request (Frame 214) to http://127.0.0.1:5000
+[2026-07-30 10:18:15] Sending generation request (Frame 215) to http://127.0.0.1:5000
+[2026-07-30 10:19:09] Sending generation request (Frame 216) to http://127.0.0.1:5000
+[2026-07-30 10:20:05] Sending generation request (Frame 217) to http://127.0.0.1:5000
+[2026-07-30 10:21:00] Sending generation request (Frame 218) to http://127.0.0.1:5000
+[2026-07-30 10:22:10] Sending generation request (Frame 219) to http://127.0.0.1:5000
+[2026-07-30 10:23:29] Sending generation request (Frame 220) to http://127.0.0.1:5000
+[2026-07-30 10:24:29] Sending generation request (Frame 221) to http://127.0.0.1:5000
+[2026-07-30 10:25:26] Sending generation request (Frame 222) to http://127.0.0.1:5000
+[2026-07-30 10:26:37] Sending generation request (Frame 223) to http://127.0.0.1:5000
+[2026-07-30 10:27:54] Sending generation request (Frame 224) to http://127.0.0.1:5000
+[2026-07-30 10:29:14] Sending generation request (Frame 225) to http://127.0.0.1:5000
+[2026-07-30 10:30:32] Sending generation request (Frame 226) to http://127.0.0.1:5000
+[2026-07-30 10:31:49] Sending generation request (Frame 227) to http://127.0.0.1:5000
+[2026-07-30 10:33:08] Sending generation request (Frame 228) to http://127.0.0.1:5000
+[2026-07-30 10:34:21] Sending generation request (Frame 229) to http://127.0.0.1:5000
+[2026-07-30 10:35:45] Sending generation request (Frame 230) to http://127.0.0.1:5000
+[2026-07-30 10:36:57] Sending generation request (Frame 231) to http://127.0.0.1:5000
+[2026-07-30 10:38:16] Sending generation request (Frame 232) to http://127.0.0.1:5000
+[2026-07-30 10:39:29] Sending generation request (Frame 233) to http://127.0.0.1:5000
+[2026-07-30 10:40:47] Sending generation request (Frame 234) to http://127.0.0.1:5000
+[2026-07-30 10:42:07] Sending generation request (Frame 235) to http://127.0.0.1:5000
+[2026-07-30 10:43:21] Sending generation request (Frame 236) to http://127.0.0.1:5000
+[2026-07-30 10:44:40] Sending generation request (Frame 237) to http://127.0.0.1:5000
+[2026-07-30 10:45:54] Sending generation request (Frame 238) to http://127.0.0.1:5000
+[2026-07-30 10:47:06] Sending generation request (Frame 239) to http://127.0.0.1:5000
+[2026-07-30 10:48:26] Sending generation request (Frame 240) to http://127.0.0.1:5000
+[2026-07-30 10:49:42] Sending generation request (Frame 241) to http://127.0.0.1:5000
+[2026-07-30 10:51:03] Sending generation request (Frame 242) to http://127.0.0.1:5000
+[2026-07-30 10:52:18] Sending generation request (Frame 243) to http://127.0.0.1:5000
+[2026-07-30 10:53:34] Sending generation request (Frame 244) to http://127.0.0.1:5000
+[2026-07-30 10:54:51] Sending generation request (Frame 245) to http://127.0.0.1:5000
+[2026-07-30 10:56:17] Sending generation request (Frame 246) to http://127.0.0.1:5000
+[2026-07-30 10:57:32] Sending generation request (Frame 247) to http://127.0.0.1:5000
+[2026-07-30 10:58:47] Sending generation request (Frame 248) to http://127.0.0.1:5000
+[2026-07-30 11:00:09] Sending generation request (Frame 249) to http://127.0.0.1:5000
+[2026-07-30 11:01:33] Sending generation request (Frame 250) to http://127.0.0.1:5000
+[2026-07-30 11:02:39] Sending generation request (Frame 251) to http://127.0.0.1:5000
+[2026-07-30 11:11:03] Sending generation request (Frame 252) to http://127.0.0.1:5000
+[2026-07-30 11:11:58] Sending generation request (Frame 253) to http://127.0.0.1:5000
+[2026-07-30 11:12:56] Sending generation request (Frame 254) to http://127.0.0.1:5000
+[2026-07-30 11:13:55] Sending generation request (Frame 255) to http://127.0.0.1:5000
+[2026-07-30 11:14:54] Sending generation request (Frame 256) to http://127.0.0.1:5000
+[2026-07-30 11:15:51] Sending generation request (Frame 257) to http://127.0.0.1:5000
+[2026-07-30 11:16:48] Sending generation request (Frame 258) to http://127.0.0.1:5000
+[2026-07-30 11:17:46] Sending generation request (Frame 259) to http://127.0.0.1:5000
+[2026-07-30 11:18:44] Sending generation request (Frame 260) to http://127.0.0.1:5000
+[2026-07-30 11:19:37] Sending generation request (Frame 261) to http://127.0.0.1:5000
+[2026-07-30 11:20:31] Sending generation request (Frame 262) to http://127.0.0.1:5000
+[2026-07-30 11:21:24] Sending generation request (Frame 263) to http://127.0.0.1:5000
+[2026-07-30 11:22:19] Sending generation request (Frame 264) to http://127.0.0.1:5000
+[2026-07-30 11:23:14] Sending generation request (Frame 265) to http://127.0.0.1:5000
+[2026-07-30 11:24:02] Sending generation request (Frame 266) to http://127.0.0.1:5000
+[2026-07-30 11:24:47] Sending generation request (Frame 267) to http://127.0.0.1:5000
+[2026-07-30 11:25:33] Sending generation request (Frame 268) to http://127.0.0.1:5000
+[2026-07-30 11:26:17] Sending generation request (Frame 269) to http://127.0.0.1:5000
+[2026-07-30 11:27:03] Sending generation request (Frame 270) to http://127.0.0.1:5000
+[2026-07-30 11:27:49] Sending generation request (Frame 271) to http://127.0.0.1:5000
+[2026-07-30 11:28:34] Sending generation request (Frame 272) to http://127.0.0.1:5000
+[2026-07-30 11:29:19] Sending generation request (Frame 273) to http://127.0.0.1:5000
+[2026-07-30 11:30:32] Sending generation request (Frame 274) to http://127.0.0.1:5000
+[2026-07-30 11:30:36] Caption set: I will change to truevisionLCM_v10.safesensors now (Font: Default, Size: 22, Remaining: 5)
+[2026-07-30 11:31:18] Sending generation request (Frame 275) to http://127.0.0.1:5000
+[2026-07-30 11:32:02] Sending generation request (Frame 276) to http://127.0.0.1:5000
+[2026-07-30 11:32:46] Sending generation request (Frame 277) to http://127.0.0.1:5000
+[2026-07-30 11:33:30] Sending generation request (Frame 278) to http://127.0.0.1:5000
+[2026-07-30 11:34:14] Temporary caption finished.
+[2026-07-30 11:34:14] Sending generation request (Frame 279) to http://127.0.0.1:5000
+[2026-07-30 11:34:59] Sending generation request (Frame 280) to http://127.0.0.1:5000
+[2026-07-30 11:35:46] Sending generation request (Frame 281) to http://127.0.0.1:5000
+[2026-07-30 11:36:31] Sending generation request (Frame 282) to http://127.0.0.1:5000
+[2026-07-30 11:37:16] Sending generation request (Frame 283) to http://127.0.0.1:5000
+[2026-07-30 11:38:01] Sending generation request (Frame 284) to http://127.0.0.1:5000
+[2026-07-30 11:38:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:15] Error generating frame 285: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+[2026-07-30 11:39:18] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:18] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:21] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:21] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:24] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:24] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:27] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:27] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:30] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:30] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:33] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:33] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:36] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:36] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:39] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:39] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:42] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:42] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:45] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:45] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:48] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:48] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:51] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:51] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:54] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:54] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:39:57] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:39:57] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:00] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:00] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:03] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:03] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:06] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:06] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:09] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:09] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:12] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:12] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:15] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:15] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:18] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:18] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:21] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:21] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:24] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:24] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:27] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:27] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:30] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:30] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:33] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:33] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:36] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:36] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:39] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:39] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:42] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:42] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:45] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:45] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:40:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:40:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:41:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:41:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:42:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:42:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:43:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:43:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:44:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:44:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:45:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:45:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:34] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:37] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:37] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:40] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:40] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:43] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:43] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:46] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:46] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:49] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:49] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:52] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:52] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:55] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:55] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:46:58] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:46:58] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:01] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:01] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:04] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:04] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:07] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:07] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:10] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:10] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:13] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:13] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:16] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:16] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:19] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:19] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:22] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:22] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:25] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:25] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:28] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:28] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:31] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:47:31] Error generating frame 285: HTTPConnectionPool(host='127.0.0.1', port=5000): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='127.0.0.1', port=5000): Failed to establish a new connection: [Errno 111] Connection refused"))
+[2026-07-30 11:47:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 11:50:03] Sending generation request (Frame 286) to http://127.0.0.1:5000
+[2026-07-30 11:51:57] Sending generation request (Frame 287) to http://127.0.0.1:5000
+[2026-07-30 11:52:53] Sending generation request (Frame 288) to http://127.0.0.1:5000
+[2026-07-30 12:06:37] landscape.py
+[2026-07-30 12:06:37] Len Prompt: 33
+[2026-07-30 12:08:54] landscape.py
+[2026-07-30 12:08:54] Len Prompt: 33
+[2026-07-30 12:11:34] ENGINE STARTED: Entering render loop (Good SD Server backend).
+[2026-07-30 12:11:34] Resume: Detected frame 284 on disk. Starting at 285
+[2026-07-30 12:11:34] Sending generation request (Frame 285) to http://127.0.0.1:5000
+[2026-07-30 12:13:38] Sending generation request (Frame 286) to http://127.0.0.1:5000
+[2026-07-30 12:15:29] Sending generation request (Frame 287) to http://127.0.0.1:5000
+[2026-07-30 12:16:17] Sending generation request (Frame 288) to http://127.0.0.1:5000
+[2026-07-30 12:17:01] Sending generation request (Frame 289) to http://127.0.0.1:5000
+[2026-07-30 12:17:48] Sending generation request (Frame 290) to http://127.0.0.1:5000
+[2026-07-30 12:18:33] Sending generation request (Frame 291) to http://127.0.0.1:5000
+[2026-07-30 12:19:17] Sending generation request (Frame 292) to http://127.0.0.1:5000
+[2026-07-30 12:20:02] Sending generation request (Frame 293) to http://127.0.0.1:5000

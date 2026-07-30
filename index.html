@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stable Diffusion Local WebUI</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-base: #080b11;
+            --bg-surface: #0f1524;
+            --bg-card: rgba(22, 30, 49, 0.7);
+            --bg-card-hover: rgba(29, 40, 65, 0.85);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(99, 102, 241, 0.15);
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-glow: rgba(99, 102, 241, 0.4);
+            
+            --secondary: #8b5cf6;
+            --secondary-hover: #7c3aed;
+            
+            --accent: #14b8a6;
+            --accent-glow: rgba(20, 184, 166, 0.3);
+            
+            --success: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            
+            --shadow-sm: 0 2px 8px -2px rgba(0,0,0,0.5);
+            --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.6), 0 8px 16px -6px rgba(0,0,0,0.6);
+            --shadow-lg: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 30px 0 rgba(99, 102, 241, 0.05);
+            
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Reset & General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        /* App Layout */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            background-color: rgba(15, 21, 36, 0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 2.25rem;
+            height: 2.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #ffffff, #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-badge {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 0.2rem 0.5rem;
+            border-radius: 99px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--danger);
+            box-shadow: 0 0 8px var(--danger);
+            transition: all var(--transition-normal);
+        }
+
+        .status-dot.connected {
+            background-color: var(--success);
+            box-shadow: 0 0 8px var(--success);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            flex-grow: 1;
+            max-width: 1600px;
+            width: 100%;
+            margin: 0 auto;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            height: calc(100vh - 73px);
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            main {
+                grid-template-columns: 1fr;
+                height: auto;
+                overflow: visible;
+            }
+        }
+
+        /* Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Sidebar Column */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            overflow-y: auto;
+            padding-right: 0.25rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            box-shadow: var(--shadow-sm);
+            transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .card:hover {
+            border-color: var(--border-glow);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-title {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--text-primary);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+        }
+
+        /* Form Controls */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        select, input[type="text"], input[type="number"], textarea {
+            width: 100%;
+            background-color: rgba(15, 21, 36, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm);
+            color: var(--text-primary);
+            padding: 0.75rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            outline: none;
+        }
+
+        select:focus, input[type="text"]:focus, input[type="number"]:focus, textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+            background-color: rgba(15, 21, 36, 0.95);
+        }
+
+        select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.2rem;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.4;
+        }
+
+        /* Slider Styles */
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .range-container input[type="range"] {
+            flex-grow: 1;
+            min-width: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 99px;
+            outline: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+        }
+
+        .range-container input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px var(--primary-glow);
+            transition: transform var(--transition-fast);
+        }
+
+        .range-container input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .range-value {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #a5b4fc;
+            min-width: 32px;
+            text-align: right;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Grid Controls */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        /* Seed Control */
+        .seed-input-wrapper {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-icon {
+            background-color: rgba(15, 21, 36, 0.8);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .btn-icon:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+            background-color: rgba(25, 35, 60, 0.8);
+        }
+
+        .btn-icon.active {
+            color: var(--accent);
+            border-color: var(--accent-glow);
+            background-color: rgba(20, 184, 166, 0.1);
+        }
+
+        /* Preset buttons */
+        .preset-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 99px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            margin-right: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .preset-badge:hover, .preset-badge.active {
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .preset-badge.active {
+            font-weight: 700;
+        }
+
+        /* Generate Button */
+        .btn-generate {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: all var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .btn-generate::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .btn-generate:hover::before {
+            transform: translateX(100%);
+        }
+
+        .btn-generate:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.6);
+        }
+
+        .btn-generate:active {
+            transform: translateY(1px);
+        }
+
+        .btn-generate:disabled {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Main Workspace Column */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            overflow: hidden;
+            height: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .workspace {
+                height: auto;
+                overflow: visible;
+            }
+        }
+
+        /* Canvas Display Area */
+        .display-card {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .display-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 1.5rem;
+        }
+
+        .image-container {
+            max-width: 100%;
+            max-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            background-color: #0b0f19;
+            border: 1px solid rgba(255,255,255,0.05);
+            aspect-ratio: 1;
+            position: relative;
+            transition: transform var(--transition-normal);
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Quick actions overlay */
+        .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(8,11,17,0.9) 0%, rgba(8,11,17,0.4) 60%, transparent 100%);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            opacity: 0;
+            transition: opacity var(--transition-normal);
+            pointer-events: none;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .overlay-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .overlay-btn {
+            background: rgba(15, 21, 36, 0.8);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-primary);
+            padding: 0.5rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            backdrop-filter: blur(8px);
+            transition: all var(--transition-fast);
+        }
+
+        .overlay-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            box-shadow: 0 0 10px var(--primary-glow);
+        }
+
+        .image-info {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            max-width: 60%;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1;
+        }
+
+        .empty-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(99, 102, 241, 0.05);
+            border: 1px dashed rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.1);
+                border-color: rgba(99, 102, 241, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px 0 rgba(99, 102, 241, 0.2);
+                border-color: rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        .empty-state h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .empty-state p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Loading State Overlay */
+        .loader-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(8, 11, 17, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            border-radius: var(--radius-md);
+        }
+
+        .loader-spinner {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+        }
+
+        .spinner-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid transparent;
+            border-top-color: var(--primary);
+            border-bottom-color: var(--secondary);
+            animation: spin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+        }
+
+        .spinner-inner {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border-radius: 50%;
+            border: 2px dashed rgba(20, 184, 166, 0.4);
+            animation: spin-reverse 4s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-reverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .loader-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .loader-subtext {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .elapsed-timer {
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--accent);
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            margin-top: 0.75rem;
+        }
+
+        /* History Gallery Panel */
+        .history-panel {
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+            .history-panel {
+                height: 300px;
+            }
+        }
+
+        .history-list {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding: 0.25rem 0;
+            height: 100%;
+            align-items: center;
+        }
+
+        .history-item {
+            flex: 0 0 110px;
+            height: 110px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            background-color: #0b0f19;
+            transition: all var(--transition-fast);
+        }
+
+        .history-item:hover {
+            transform: translateY(-4px) scale(1.03);
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .history-item.active {
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(20, 184, 166, 0.3);
+        }
+
+        .history-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .history-empty {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            border: 1px dashed var(--border-color);
+            border-radius: var(--radius-sm);
+        }
+
+        /* API Settings Panel (Collapsible) */
+        .settings-toggle-btn {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: underline;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+        .settings-toggle-btn:hover {
+            color: var(--text-secondary);
+        }
+
+        .settings-content {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(255,255,255,0.05);
+        }
+
+        .settings-content.open {
+            display: block;
+        }
+
+        /* Lightbox modal for enlarged image views */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(5, 7, 12, 0.95);
+            z-index: 200;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: color var(--transition-fast);
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 0 50px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .modal-info-card {
+            background: rgba(15, 21, 36, 0.8);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-md);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-prompt {
+            font-size: 0.9rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .modal-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Toast notifications */
+        .toast {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-md);
+            z-index: 300;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateY(150%);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .toast-title {
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+        }
+
+        .toast-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .toast.success { border-left-color: var(--success); }
+        .toast.error { border-left-color: var(--danger); }
+        .toast.warning { border-left-color: var(--warning); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <span class="logo-text">AURA DIFFUSION</span>
+            <span class="logo-badge">offline api</span>
+        </div>
+        <div class="server-status" id="serverStatusBadge">
+            <div class="status-dot" id="statusDot"></div>
+            <span id="statusText">Checking connection...</span>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sidebar Controls -->
+        <div class="sidebar">
+            
+            <!-- Connection Setup & Model Swap -->
+            <div class="card">
+                <div class="card-title">
+                    <span>Model Controller</span>
+                    <button class="settings-toggle-btn" onclick="toggleSettings()">API Options</button>
+                </div>
+                
+                <!-- Hidden API Settings -->
+                <div class="settings-content" id="settingsPanel">
+                    <div class="form-group">
+                        <label for="apiUrl">API Server URL</label>
+                        <input type="text" id="apiUrl" value="http://127.0.0.1:5001" placeholder="e.g. http://127.0.0.1:5001" onchange="checkServerStatus()">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelSelect">Active Checkpoint</label>
+                    <select id="modelSelect" onchange="changeModel()">
+                        <option value="" disabled selected>Loading models...</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- LoRA Adapters Card -->
+            <div class="card">
+                <div class="card-title">
+                    <span>LoRA Adapters (Max 2)</span>
+                </div>
+                
+                <!-- LoRA 1 -->
+                <div class="form-group" style="border-bottom: 1px dashed rgba(255,255,255,0.05); padding-bottom: 0.75rem; margin-bottom: 0.75rem;">
+                    <label for="lora1Select">LoRA 1</label>
+                    <select id="lora1Select" style="margin-bottom: 0.5rem;">
+                        <option value="">None (Disabled)</option>
+                    </select>
+                    <div>
+                        <label for="lora1Weight" style="font-size: 0.7rem; color: var(--text-muted);">Weight</label>
+                        <div class="range-container">
+                            <input type="range" id="lora1Weight" min="-2" max="2" step="0.05" value="0.75" oninput="updateRangeVal('lora1WeightVal', this.value)">
+                            <span class="range-value" id="lora1WeightVal">0.75</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LoRA 2 -->
+                <div class="form-group">
+                    <label for="lora2Select">LoRA 2</label>
+                    <select id="lora2Select" style="margin-bottom: 0.5rem;">
+                        <option value="">None (Disabled)</option>
+                    </select>
+                    <div>
+                        <label for="lora2Weight" style="font-size: 0.7rem; color: var(--text-muted);">Weight</label>
+                        <div class="range-container">
+                            <input type="range" id="lora2Weight" min="-2" max="2" step="0.05" value="0.75" oninput="updateRangeVal('lora2WeightVal', this.value)">
+                            <span class="range-value" id="lora2WeightVal">0.75</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Parameters Card -->
+            <div class="card">
+                <div class="card-title">
+                    <span>Generation Settings</span>
+                </div>
+
+                <!-- Prompt -->
+                <div class="form-group">
+                    <label for="prompt">Prompt</label>
+                    <textarea id="prompt" placeholder="A stunning photorealistic landscape of a futuristic glass city at sunset...">a beautiful Latina with long wild wild hair sitting on a rock near a waterfall, wearing a tattered and torn denim bikini.</textarea>
+                    
+                    <div style="margin-top: 0.5rem; display: flex; flex-wrap: wrap;">
+                        <span class="preset-badge" onclick="usePresetPrompt('A photorealistic portrait of an astronaut in a lush garden, highly detailed, cinematic lighting, 8k')">Astronaut</span>
+                        <span class="preset-badge" onclick="usePresetPrompt('Cyberpunk city streets at night with neon lights, glowing signs, rain reflecting on pavement, futuristic flying cars')">Neon City</span>
+                        <span class="preset-badge" onclick="usePresetPrompt('An oil painting of a majestic dragon perched on a snowy mountain peak, fantasy art, style of Rembrandt')">Dragon Art</span>
+                        <span class="preset-badge" onclick="usePresetPrompt('Chibi cute kitten wizard casting a spell, glowing magical runes, whimsical, Pixar style 3D render')">Cute Wizard</span>
+                        <span class="preset-badge" onclick="usePresetPrompt('Breathtaking misty forest at sunrise, sunlight rays filtering through ancient giant redwood trees, high fantasy')">Misty Forest</span>
+                    </div>
+                </div>
+
+                <!-- Negative Prompt -->
+                <div class="form-group">
+                    <label for="negativePrompt">Negative Prompt</label>
+                    <textarea id="negativePrompt" placeholder="blurry, low quality, distorted, extra limbs, bad hands, low resolution">blurry, low quality</textarea>
+                </div>
+
+                <div class="form-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <label>LCM Quick Preset</label>
+                        <span class="preset-badge active" id="lcmToggle" onclick="toggleLcmMode()" style="margin: 0; font-weight: bold;">ON</span>
+                    </div>
+                    <p style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem;">
+                        Optimizes parameters for Latent Consistency Models (fast 4-8 step rendering, best for CPU).
+                    </p>
+                </div>
+
+                <!-- Steps -->
+                <div class="form-group">
+                    <label for="steps">Steps</label>
+                    <div class="range-container">
+                        <input type="range" id="steps" min="1" max="100" value="6" oninput="updateRangeVal('stepsVal', this.value)">
+                        <span class="range-value" id="stepsVal">6</span>
+                    </div>
+                </div>
+
+                <!-- CFG Scale -->
+                <div class="form-group">
+                    <label for="guidance">CFG Scale</label>
+                    <div class="range-container">
+                        <input type="range" id="guidance" min="0.5" max="20" step="0.1" value="1.5" oninput="updateRangeVal('guidanceVal', this.value)">
+                        <span class="range-value" id="guidanceVal">1.5</span>
+                    </div>
+                </div>
+
+                <!-- Width & Height -->
+                <div class="grid-2 form-group">
+                    <div>
+                        <label for="width">Width</label>
+                        <select id="width">
+                            <option value="256">256 px</option>
+                            <option value="384">384 px</option>
+                            <option value="512" selected>512 px</option>
+                            <option value="640">640 px</option>
+                            <option value="768">768 px</option>
+                            <option value="1024">1024 px</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="height">Height</label>
+                        <select id="height">
+                            <option value="256">256 px</option>
+                            <option value="384">384 px</option>
+                            <option value="512">512 px</option>
+                            <option value="640">640 px</option>
+                            <option value="768" selected>768 px</option>
+                            <option value="1024">1024 px</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Seed -->
+                <div class="form-group">
+                    <label for="seed">Seed</label>
+                    <div class="seed-input-wrapper">
+                        <input type="number" id="seed" value="0" style="flex-grow: 1;">
+                        <button class="btn-icon" title="Randomize Seed" onclick="randomizeSeed()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M2 12c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2" stroke-linecap="round"/>
+                                <path d="M22 2L15 9" stroke-linecap="round"/>
+                                <path d="M15 4V9H20" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn-icon" id="seedLockBtn" title="Keep Seed After Generation" onclick="toggleSeedLock()">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="seedLockIcon">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Generate Trigger -->
+                <button class="btn-generate" id="generateBtn" onclick="generateImage()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Generate Artwork</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Workspace -->
+        <div class="workspace">
+            
+            <!-- Canvas Display Card -->
+            <div class="card display-card">
+                
+                <!-- Loading State overlay -->
+                <div class="loader-overlay" id="loaderOverlay">
+                    <div class="loader-spinner">
+                        <div class="spinner-ring"></div>
+                        <div class="spinner-inner"></div>
+                    </div>
+                    <div class="loader-text" id="loaderText">Denoising Image...</div>
+                    <div class="loader-subtext" id="loaderSubtext">Executing model pipeline...</div>
+                    <div class="elapsed-timer" id="elapsedTimer">00.0s</div>
+                </div>
+
+                <div class="display-content" id="canvasContent">
+                    <!-- Default Empty State -->
+                    <div class="empty-state" id="emptyState">
+                        <div class="empty-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <circle cx="8.5" cy="8.5" r="1.5"/>
+                                <polyline points="21 15 16 10 5 21"/>
+                            </svg>
+                        </div>
+                        <h3>No Artwork Generated</h3>
+                        <p>Configure your prompt and generation values on the left panel, then hit Generate to invoke the Stable Diffusion pipeline.</p>
+                    </div>
+                    
+                    <!-- Display Image Container (Hidden initially) -->
+                    <div class="image-container" id="imageWrapper" style="display: none;">
+                        <img id="mainResultImage" src="" alt="Stable Diffusion Output" onclick="openLightbox()">
+                        <div class="image-overlay">
+                            <div class="image-info" id="imageInfoText">
+                                <!-- Prompt info and settings will go here -->
+                            </div>
+                            <div class="overlay-actions">
+                                <button class="overlay-btn" onclick="reuseActiveParams()">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                                    </svg>
+                                    Use Settings
+                                </button>
+                                <button class="overlay-btn" id="downloadBtn" onclick="downloadImage()">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                                    </svg>
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Panel -->
+            <div class="card history-panel">
+                <div class="card-title" style="margin-bottom: 0.75rem;">
+                    <span>Generation History</span>
+                    <button class="settings-toggle-btn" style="color: var(--danger); text-decoration: none;" onclick="clearHistory()">Clear All</button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <div class="history-empty" id="historyEmpty">History is empty. Your generations will appear here.</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="modal-close">&times;</span>
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <img class="modal-image" id="modalImage" src="" alt="Enlarged Output">
+            <div class="modal-info-card">
+                <div class="modal-prompt" id="modalPromptText"></div>
+                <div class="modal-meta" id="modalMetaText"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div style="flex-grow: 1;">
+            <div class="toast-title" id="toastTitle">Notification</div>
+            <div class="toast-desc" id="toastDesc">Details message</div>
+        </div>
+    </div>
+
+    <script>
+        // State variables
+        let isConnected = false;
+        let isGenerating = false;
+        let seedLocked = false;
+        let timerInterval = null;
+        let startTime = null;
+        let history = [];
+        let activeImage = null; // Currently selected/shown image object
+        let isLcmEnabled = true;
+        let isFlaskBackend = false;
+
+        // Configuration keys
+        const API_URL_KEY = 'aura_sd_api_url';
+        const HISTORY_KEY = 'aura_sd_history';
+
+        // Elements caching (dynamic getters to prevent early-load null references)
+        const el = {
+            get apiUrl() { return document.getElementById('apiUrl'); },
+            get modelSelect() { return document.getElementById('modelSelect'); },
+            get lora1Select() { return document.getElementById('lora1Select'); },
+            get lora1Weight() { return document.getElementById('lora1Weight'); },
+            get lora2Select() { return document.getElementById('lora2Select'); },
+            get lora2Weight() { return document.getElementById('lora2Weight'); },
+            get prompt() { return document.getElementById('prompt'); },
+            get negativePrompt() { return document.getElementById('negativePrompt'); },
+            get steps() { return document.getElementById('steps'); },
+            get stepsVal() { return document.getElementById('stepsVal'); },
+            get guidance() { return document.getElementById('guidance'); },
+            get guidanceVal() { return document.getElementById('guidanceVal'); },
+            get width() { return document.getElementById('width'); },
+            get height() { return document.getElementById('height'); },
+            get seed() { return document.getElementById('seed'); },
+            get seedLockBtn() { return document.getElementById('seedLockBtn'); },
+            get seedLockIcon() { return document.getElementById('seedLockIcon'); },
+            get generateBtn() { return document.getElementById('generateBtn'); },
+            get statusDot() { return document.getElementById('statusDot'); },
+            get statusText() { return document.getElementById('statusText'); },
+            get loaderOverlay() { return document.getElementById('loaderOverlay'); },
+            get loaderText() { return document.getElementById('loaderText'); },
+            get loaderSubtext() { return document.getElementById('loaderSubtext'); },
+            get elapsedTimer() { return document.getElementById('elapsedTimer'); },
+            get emptyState() { return document.getElementById('emptyState'); },
+            get imageWrapper() { return document.getElementById('imageWrapper'); },
+            get mainResultImage() { return document.getElementById('mainResultImage'); },
+            get imageInfoText() { return document.getElementById('imageInfoText'); },
+            get historyList() { return document.getElementById('historyList'); },
+            get historyEmpty() { return document.getElementById('historyEmpty'); },
+            get lightboxModal() { return document.getElementById('lightboxModal'); },
+            get modalImage() { return document.getElementById('modalImage'); },
+            get modalPromptText() { return document.getElementById('modalPromptText'); },
+            get modalMetaText() { return document.getElementById('modalMetaText'); },
+            get toast() { return document.getElementById('toast'); },
+            get toastTitle() { return document.getElementById('toastTitle'); },
+            get toastDesc() { return document.getElementById('toastDesc'); },
+            get settingsPanel() { return document.getElementById('settingsPanel'); },
+            get lcmToggle() { return document.getElementById('lcmToggle'); }
+        };
+
+        // Initialize application
+        window.addEventListener('DOMContentLoaded', () => {
+            // Determine default API URL
+            // If the frontend is served by the python server, location.origin will be e.g. http://localhost:5000
+            // If it is file://, fallback to default local URL http://127.0.0.1:5000
+            const host = window.location.origin;
+            const defaultUrl = (host && !host.startsWith('file:')) ? host : 'http://127.0.0.1:5000';
+            
+            // Load saved settings
+            const savedUrl = localStorage.getItem(API_URL_KEY);
+            if (savedUrl) {
+                el.apiUrl.value = savedUrl;
+            } else {
+                el.apiUrl.value = defaultUrl;
+            }
+
+            // Load saved history
+            const savedHistory = localStorage.getItem(HISTORY_KEY);
+            if (savedHistory) {
+                try {
+                    history = JSON.parse(savedHistory);
+                    renderHistory();
+                } catch(e) {
+                    console.error("Failed parsing history", e);
+                }
+            }
+
+            // Establish connection
+            checkServerStatus();
+
+            // Set up interval to check connection status
+            setInterval(checkServerStatus, 15000);
+        });
+
+        // Toggle manual settings panel
+        function toggleSettings() {
+            el.settingsPanel.classList.toggle('open');
+        }
+
+        // Show toast notification
+        function showToast(title, desc, type = 'info') {
+            el.toastTitle.textContent = title;
+            el.toastDesc.textContent = desc;
+            
+            // Remove previous classes
+            el.toast.className = 'toast';
+            el.toast.classList.add(type);
+            el.toast.classList.add('show');
+            
+            setTimeout(() => {
+                el.toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // Check if API server is reachable (supports both direct SD server and Flask gateway)
+        async function checkServerStatus() {
+            const baseUrl = el.apiUrl.value.trim().replace(/\/$/, "");
+            localStorage.setItem(API_URL_KEY, baseUrl);
+            
+            // Try direct SD server first
+            try {
+                const response = await fetch(`${baseUrl}/api/models`, {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    isFlaskBackend = false;
+                    setConnected(true, "Connected");
+                    populateModels(data.models, data.active_model);
+                    populateLoras(data.loras);
+                    return;
+                }
+            } catch (err) {
+                // Fall through to try Flask backend
+            }
+
+            // Try Flask backend
+            try {
+                const response = await fetch(`${baseUrl}/models`, {
+                    method: 'GET',
+                    headers: { 'Accept': 'application/json' }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    isFlaskBackend = true;
+                    setConnected(true, "Connected (Flask)");
+                    populateModels(data.models, data.active_model);
+                    populateLoras(data.loras);
+                    return;
+                }
+            } catch (err) {
+                // Both failed
+            }
+            
+            setConnected(false, "Offline / Connection Refused");
+        }
+
+        function setConnected(connected, message) {
+            isConnected = connected;
+            if (connected) {
+                el.statusDot.className = 'status-dot connected';
+                el.statusText.textContent = message;
+                el.generateBtn.removeAttribute('disabled');
+            } else {
+                el.statusDot.className = 'status-dot';
+                el.statusText.textContent = message;
+                el.generateBtn.setAttribute('disabled', 'true');
+            }
+        }
+
+        // Populate available models dropdown
+        function populateModels(models, activeModel) {
+            // Keep track of current selected value to preserve if possible
+            const currentSelected = el.modelSelect.value;
+            
+            el.modelSelect.innerHTML = '';
+            
+            if (!models || models.length === 0) {
+                el.modelSelect.innerHTML = '<option value="" disabled selected>No checkpoints found</option>';
+                return;
+            }
+            
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                option.textContent = model;
+                if (model === activeModel) {
+                    option.selected = true;
+                }
+                el.modelSelect.appendChild(option);
+            });
+            
+            // If activeModel is empty or not in lists, fallback
+            if (!activeModel && models.length > 0) {
+                el.modelSelect.value = models[0];
+            }
+        }
+
+        // Populate available LoRAs dropdowns
+        function populateLoras(loras) {
+            const selected1 = el.lora1Select.value;
+            const selected2 = el.lora2Select.value;
+            
+            el.lora1Select.innerHTML = '<option value="">None (Disabled)</option>';
+            el.lora2Select.innerHTML = '<option value="">None (Disabled)</option>';
+            
+            if (!loras || loras.length === 0) {
+                return;
+            }
+            
+            loras.forEach(lora => {
+                const opt1 = document.createElement('option');
+                opt1.value = lora;
+                opt1.textContent = lora;
+                if (lora === selected1) opt1.selected = true;
+                el.lora1Select.appendChild(opt1);
+                
+                const opt2 = document.createElement('option');
+                opt2.value = lora;
+                opt2.textContent = lora;
+                if (lora === selected2) opt2.selected = true;
+                el.lora2Select.appendChild(opt2);
+            });
+        }
+
+        // Change the active checkpoint on the server
+        async function changeModel() {
+            if (isFlaskBackend) {
+                showToast("Model Selected", `Model will load automatically upon next generation`, 'info');
+                return;
+            }
+            const baseUrl = el.apiUrl.value.trim().replace(/\/$/, "");
+            const selectedModel = el.modelSelect.value;
+            
+            if (!selectedModel) return;
+            
+            showToast("Loading Model", `Requesting server load ${selectedModel}...`, 'warning');
+            
+            // Show loading overlay
+            el.loaderOverlay.style.display = 'flex';
+            el.loaderText.textContent = "Loading Model Checkpoint...";
+            el.loaderSubtext.textContent = `Swapping weights to ${selectedModel}. This may take a minute if swapping VRAM...`;
+            
+            // Disable generate button
+            el.generateBtn.setAttribute('disabled', 'true');
+            
+            // Start clock
+            startTimer();
+            
+            try {
+                const response = await fetch(`${baseUrl}/api/select-model`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ model: selectedModel })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    showToast("Success", data.info || `Loaded model ${selectedModel}`, 'success');
+                    // Check status to verify
+                    checkServerStatus();
+                } else {
+                    showToast("Failed to load model", data.error || "Unknown server error", 'error');
+                }
+            } catch (err) {
+                showToast("Connection Error", "Failed to communicate with server during model swap", 'error');
+            } finally {
+                stopTimer();
+                el.loaderOverlay.style.display = 'none';
+                el.generateBtn.removeAttribute('disabled');
+            }
+        }
+
+        // Randomize seed field
+        function randomizeSeed() {
+            el.seed.value = Math.floor(Math.random() * 99999999);
+        }
+
+        // Toggle seed lock setting
+        function toggleSeedLock() {
+            seedLocked = !seedLocked;
+            if (seedLocked) {
+                el.seedLockBtn.classList.add('active');
+                el.seedLockIcon.style.stroke = 'var(--accent)';
+            } else {
+                el.seedLockBtn.classList.remove('active');
+                el.seedLockIcon.style.stroke = 'currentColor';
+            }
+        }
+
+        // Helper to update text labels of sliders
+        function updateRangeVal(labelId, val) {
+            document.getElementById(labelId).textContent = val;
+        }
+
+        // Apply a preset prompt
+        function usePresetPrompt(text) {
+            el.prompt.value = text;
+        }
+
+        // Toggle LCM Quick Mode Presets
+        function toggleLcmMode() {
+            isLcmEnabled = !isLcmEnabled;
+            if (isLcmEnabled) {
+                el.lcmToggle.textContent = "ON";
+                el.lcmToggle.classList.add('active');
+                
+                // Set LCM recommended defaults
+                el.steps.value = 8;
+                updateRangeVal('stepsVal', 8);
+                
+                el.guidance.value = 1.5;
+                updateRangeVal('guidanceVal', 1.5);
+                
+                showToast("LCM Preset Activated", "Steps set to 8, CFG set to 1.5. Excellent for CPU speeds or real-time iterations.", "info");
+            } else {
+                el.lcmToggle.textContent = "OFF";
+                el.lcmToggle.classList.remove('active');
+                
+                // Restore standard defaults
+                el.steps.value = 30;
+                updateRangeVal('stepsVal', 30);
+                
+                el.guidance.value = 7.0; // Standard SD scale
+                updateRangeVal('guidanceVal', 7.0);
+                
+                showToast("Standard Mode Activated", "Steps set to 30, CFG set to 7.0. Best for standard checkpoints.", "info");
+            }
+        }
+
+        // Start timer animation
+        function startTimer() {
+            startTime = Date.now();
+            el.elapsedTimer.textContent = "0.0s";
+            
+            if (timerInterval) clearInterval(timerInterval);
+            
+            timerInterval = setInterval(() => {
+                const diffMs = Date.now() - startTime;
+                const sec = (diffMs / 1000).toFixed(1);
+                el.elapsedTimer.textContent = `${sec}s`;
+            }, 100);
+        }
+
+        // Stop timer animation
+        function stopTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+
+        // Main function to fire generation request
+        async function generateImage() {
+            if (!isConnected || isGenerating) return;
+            
+            const baseUrl = el.apiUrl.value.trim().replace(/\/$/, "");
+            const promptVal = el.prompt.value.trim();
+            
+            if (!promptVal) {
+                showToast("Prompt Empty", "Please write a prompt describing the image you want to create.", "warning");
+                el.prompt.focus();
+                return;
+            }
+
+            isGenerating = true;
+            el.generateBtn.setAttribute('disabled', 'true');
+            el.loaderOverlay.style.display = 'flex';
+            el.loaderText.textContent = "Synthesizing Latents...";
+            el.loaderSubtext.textContent = "The server is running Stable Diffusion pipelines. Please wait...";
+            
+            startTimer();
+
+            let seedVal = parseInt(el.seed.value);
+            if (isNaN(seedVal) || seedVal === 0) {
+                seedVal = Math.floor(Math.random() * 99999999);
+                el.seed.value = seedVal;
+            }
+
+            // Prepare payloads
+            const requestParams = {
+                prompt: promptVal,
+                negative_prompt: el.negativePrompt.value.trim(),
+                steps: parseInt(el.steps.value),
+                guidance_scale: parseFloat(el.guidance.value),
+                width: parseInt(el.width.value),
+                height: parseInt(el.height.value),
+                seed: seedVal,
+                model: el.modelSelect.value, // server will swap automatically if requested != active
+                lora1: el.lora1Select.value,
+                lora1_weight: parseFloat(el.lora1Weight.value),
+                lora2: el.lora2Select.value,
+                lora2_weight: parseFloat(el.lora2Weight.value),
+                save_dir: "static/html_images"
+            };
+
+            try {
+                const generateUrl = isFlaskBackend ? `${baseUrl}/generate_image` : `${baseUrl}/api/generate`;
+                const response = await fetch(generateUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestParams)
+                });
+                
+                const data = await response.json();
+                const imgUrl = data.imageUrl || data.image_url;
+                
+                if (response.ok && imgUrl) {
+                    // Stop timer & get total elapsed time
+                    stopTimer();
+                    const totalDuration = ((Date.now() - startTime) / 1000).toFixed(1);
+                    
+                    showToast("Generation Complete", `Image rendered in ${totalDuration}s`, "success");
+                    
+                    // Create image record
+                    const record = {
+                        id: 'art_' + Date.now(),
+                        imageUrl: imgUrl,
+                        prompt: promptVal,
+                        negative_prompt: requestParams.negative_prompt,
+                        steps: requestParams.steps,
+                        guidance_scale: requestParams.guidance_scale,
+                        width: requestParams.width,
+                        height: requestParams.height,
+                        seed: data.seed || requestParams.seed,
+                        model: el.modelSelect.value,
+                        lora1: requestParams.lora1,
+                        lora1_weight: requestParams.lora1_weight,
+                        lora2: requestParams.lora2,
+                        lora2_weight: requestParams.lora2_weight,
+                        timestamp: new Date().toLocaleTimeString(),
+                        duration: totalDuration,
+                        saved_path: data.saved_path
+                    };
+                    
+                    // Add to history
+                    history.unshift(record);
+                    
+                    // Keep history capped at 30 items
+                    if (history.length > 30) history.pop();
+                    
+                    // Save history
+                    localStorage.setItem(HISTORY_KEY, JSON.stringify(history));
+                    
+                    // Select current active image
+                    setActiveImage(record);
+                    renderHistory();
+                    
+                    // If seed is not locked, randomize it for the next run
+                    if (!seedLocked) {
+                        randomizeSeed();
+                    }
+                } else {
+                    stopTimer();
+                    showToast("Server Error", data.error || "Image generation failed.", "error");
+                }
+            } catch (err) {
+                stopTimer();
+                console.error(err);
+                showToast("Network Error", "Could not connect to the pipeline server API endpoint.", "error");
+            } finally {
+                isGenerating = false;
+                el.loaderOverlay.style.display = 'none';
+                el.generateBtn.removeAttribute('disabled');
+            }
+        }
+
+        // Set the active displayed image in the workspace canvas
+        function setActiveImage(imageRecord) {
+            activeImage = imageRecord;
+            
+            // Hide empty state
+            el.emptyState.style.display = 'none';
+            el.imageWrapper.style.display = 'flex';
+            
+            // Set image source
+            el.mainResultImage.src = imageRecord.imageUrl;
+            
+            // Parse loras info if any
+            let loraInfo = "";
+            if (imageRecord.lora1) {
+                loraInfo += ` | LoRA 1: ${imageRecord.lora1.slice(0, 15)}... (${imageRecord.lora1_weight})`;
+            }
+            if (imageRecord.lora2) {
+                loraInfo += ` | LoRA 2: ${imageRecord.lora2.slice(0, 15)}... (${imageRecord.lora2_weight})`;
+            }
+            
+            // Render parameter information
+            let fileLink = "";
+            if (imageRecord.saved_path) {
+                const baseUrl = el.apiUrl.value.trim().replace(/\/$/, "");
+                const webUrl = imageRecord.saved_path.startsWith('http') ? imageRecord.saved_path : `${baseUrl}/${imageRecord.saved_path}`;
+                fileLink = ` | Saved File: <a href="${webUrl}" target="_blank" class="link-glow">${imageRecord.saved_path}</a>`;
+            }
+
+            el.imageInfoText.innerHTML = `
+                <div style="font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title="${imageRecord.prompt}">
+                    ${imageRecord.prompt}
+                </div>
+                <div>Seed: ${imageRecord.seed} | Scale: ${imageRecord.guidance_scale} | Steps: ${imageRecord.steps} | ${imageRecord.width}x${imageRecord.height}${loraInfo} | Time: ${imageRecord.duration}s${fileLink}</div>
+            `;
+            
+            // Highlight in history panel
+            const items = el.historyList.querySelectorAll('.history-item');
+            items.forEach(item => {
+                if (item.dataset.id === imageRecord.id) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+
+        // Render the image history list
+        function renderHistory() {
+            if (history.length === 0) {
+                el.historyEmpty.style.display = 'flex';
+                // Remove existing item elements
+                const items = el.historyList.querySelectorAll('.history-item');
+                items.forEach(i => i.remove());
+                return;
+            }
+            
+            el.historyEmpty.style.display = 'none';
+            
+            // Remove existing item elements to redraw
+            const existingItems = el.historyList.querySelectorAll('.history-item');
+            existingItems.forEach(i => i.remove());
+            
+            history.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'history-item';
+                div.dataset.id = item.id;
+                if (activeImage && activeImage.id === item.id) {
+                    div.classList.add('active');
+                }
+                
+                div.innerHTML = `<img src="${item.imageUrl}" alt="Preview">`;
+                
+                div.addEventListener('click', () => {
+                    setActiveImage(item);
+                });
+                
+                el.historyList.appendChild(div);
+            });
+        }
+
+        // Clean out history records
+        function clearHistory() {
+            if (confirm("Are you sure you want to clear your generation history? This will delete all saved previews.")) {
+                history = [];
+                localStorage.removeItem(HISTORY_KEY);
+                activeImage = null;
+                
+                // Hide wrapper and show empty state
+                el.imageWrapper.style.display = 'none';
+                el.emptyState.style.display = 'flex';
+                
+                renderHistory();
+                showToast("History Cleared", "Local generation list was wiped.", "info");
+            }
+        }
+
+        // Reuse settings of active/historical image back into controls
+        function reuseActiveParams() {
+            if (!activeImage) return;
+            
+            el.prompt.value = activeImage.prompt;
+            el.negativePrompt.value = activeImage.negative_prompt;
+            el.steps.value = activeImage.steps;
+            updateRangeVal('stepsVal', activeImage.steps);
+            el.guidance.value = activeImage.guidance_scale;
+            updateRangeVal('guidanceVal', activeImage.guidance_scale);
+            el.width.value = activeImage.width;
+            el.height.value = activeImage.height;
+            el.seed.value = activeImage.seed;
+            
+            // Turn on seed lock automatically so the user can modify parameters with same seed
+            if (!seedLocked) {
+                toggleSeedLock();
+            }
+            
+            // Set model dropdown if available
+            if (activeImage.model && Array.from(el.modelSelect.options).some(opt => opt.value === activeImage.model)) {
+                el.modelSelect.value = activeImage.model;
+            }
+
+            // Restore LoRA 1
+            if (activeImage.lora1 && Array.from(el.lora1Select.options).some(opt => opt.value === activeImage.lora1)) {
+                el.lora1Select.value = activeImage.lora1;
+            } else {
+                el.lora1Select.value = "";
+            }
+            el.lora1Weight.value = activeImage.lora1_weight !== undefined ? activeImage.lora1_weight : 0.75;
+            updateRangeVal('lora1WeightVal', el.lora1Weight.value);
+
+            // Restore LoRA 2
+            if (activeImage.lora2 && Array.from(el.lora2Select.options).some(opt => opt.value === activeImage.lora2)) {
+                el.lora2Select.value = activeImage.lora2;
+            } else {
+                el.lora2Select.value = "";
+            }
+            el.lora2Weight.value = activeImage.lora2_weight !== undefined ? activeImage.lora2_weight : 0.75;
+            updateRangeVal('lora2WeightVal', el.lora2Weight.value);
+            
+            showToast("Settings Restored", "Prompt, dimensions, seed, steps, CFG, and LoRAs copied to parameters.", "success");
+        }
+
+        // Download the active image
+        function downloadImage() {
+            if (!activeImage) return;
+            
+            const link = document.createElement('a');
+            link.href = activeImage.imageUrl;
+            
+            // Format filename from prompt
+            const cleanName = activeImage.prompt.slice(0, 30).replace(/[^a-z0-9]/gi, '_').toLowerCase();
+            link.download = `sd_${cleanName || 'art'}_${activeImage.seed}.png`;
+            
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            
+            showToast("Download Started", "Image saved as PNG", "info");
+        }
+
+        // Lightbox modal operations
+        function openLightbox() {
+            if (!activeImage) return;
+            
+            el.modalImage.src = activeImage.imageUrl;
+            el.modalPromptText.textContent = activeImage.prompt;
+            
+            let loraMeta = "";
+            if (activeImage.lora1) {
+                loraMeta += `<span>LoRA 1: <strong>${activeImage.lora1} (${activeImage.lora1_weight})</strong></span>`;
+            }
+            if (activeImage.lora2) {
+                loraMeta += `<span>LoRA 2: <strong>${activeImage.lora2} (${activeImage.lora2_weight})</strong></span>`;
+            }
+            
+            el.modalMetaText.innerHTML = `
+                <span>Seed: <strong>${activeImage.seed}</strong></span>
+                <span>CFG: <strong>${activeImage.guidance_scale}</strong></span>
+                <span>Steps: <strong>${activeImage.steps}</strong></span>
+                <span>Dimensions: <strong>${activeImage.width}x${activeImage.height}</strong></span>
+                <span>Model: <strong>${activeImage.model || 'Default'}</strong></span>
+                ${loraMeta}
+                <span>Duration: <strong>${activeImage.duration}s</strong></span>
+            `;
+            
+            el.lightboxModal.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            el.lightboxModal.style.display = 'none';
+        }
+
+        // Close lightbox with Escape key
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
