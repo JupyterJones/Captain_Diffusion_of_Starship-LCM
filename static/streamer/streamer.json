@@ -1,14 +1,14 @@
 {
-  "current_frame": 313,
-  "frames_total": 500,
-  "seed": 123453,
+  "current_frame": 511,
+  "frames_total": 511,
+  "seed": 123454,
   "prompt": "A dreamy, ethereal star-gate glows with soft, luminescent tendrils, suspended amidst a swirling vortex of stardust and cosmic debris. Semi-transparent, iridescent creatures \u2013 reminiscent of mythical sea monsters \u2013 dart and weave through the gateway's shimmering aura, their scales reflecting hues of sapphire, amethyst, and rose gold. Nebulae and planetary wisps dance in the background, as distant stars twinkle like diamonds against a velvety blackness.",
   "negative_prompt": "low quality, blurry, bare breasts, nipples, large breasts, NSFW, deformed fingers",
   "model": "dreamshaper_8LCM.safetensors",
-  "lora1": "None",
+  "lora1": "more_details.safetensors",
   "lora2": null,
   "lora3": "None",
-  "denoise": 0.35,
+  "denoise": 0.33,
   "keyframes": {
     "19": {
       "prompt": "Highly detailed Centered Science fiction image of a mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris <lora:more_details:.8>",
@@ -19,27 +19,62 @@
       "prompt": "Highly detailed Centered Science fiction image of a mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris <lora:more_details:.8>",
       "denoise": 0.95,
       "seed_offset": 5
+    },
+    "450": {
+      "prompt": "A swirling, ethereal star-gate suspended amidst a tapestry of twinkling stars, nebulas, and dancing cosmic dust, bathed in soft, golden light that seeps through semi-transparent, iridescent wings of space creatures, reminiscent of mythical sea monsters, with delicate, glowing scales and tendrils that blend seamlessly into the surrounding stellar expanse, while planets and asteroids drift lazily in the background.",
+      "denoise": 0.75,
+      "seed_offset": 0
+    },
+    "360": {
+      "prompt": "A swirling, ethereal star-gate suspended amidst a tapestry of twinkling stars, nebulae, and dancing cosmic dust, bathed in soft, golden light that seeps through semi-transparent, iridescent wings of space creatures, reminiscent of mythical sea monsters, with delicate, glowing scales and tendrils that blend seamlessly into the surrounding stellar expanse, while planets and asteroids drift lazily in the background.",
+      "denoise": 0.8,
+      "seed_offset": 0
+    },
+    "380": {
+      "prompt": "A swirling, ethereal star-gate suspended amidst a tapestry of twinkling stars, nebulae, and dancing cosmic dust, bathed in soft, golden light seeping through iridescent, semi-transparent wings of space creatures with delicate, glowing scales and tendrils that blend seamlessly into the surrounding stellar expanse; rendered in dreamy, Impressionist brushstrokes with a 100mm macro lens and a slight diffraction effect, emphasizing subtle textures on celestial bodies.",
+      "denoise": 0.6,
+      "seed_offset": 0
+    },
+    "475": {
+      "prompt": "create a view of a docking bay on a space station",
+      "denoise": 0.85,
+      "seed_offset": 8716
+    },
+    "500": {
+      "prompt": "create a view of a docking bay on a space station",
+      "denoise": 0.95,
+      "seed_offset": 0
+    },
+    "502": {
+      "prompt": "create a view of a docking bay on a space station",
+      "denoise": 0.95,
+      "seed_offset": 0
+    },
+    "507": {
+      "prompt": "create a view of a docking bay on a space station. Crew awaits to help waving flags",
+      "denoise": 0.95,
+      "seed_offset": 0
     }
   },
   "injection_lines": [],
   "use_motion_zoom": true,
   "use_metadata_caption": false,
   "z_s": 1.0,
-  "z_e": 1.05,
+  "z_e": 1.2,
   "px_s": 0.5,
   "px_e": 0.5,
   "py_s": 0.5,
   "py_e": 0.5,
   "roll_mode": "none",
-  "steps": 9,
-  "cfg": 1.3,
+  "steps": 14,
+  "cfg": 1.6,
   "logo_filename": "None",
   "logo_x": 0,
   "logo_y": 0,
   "logo_w": 100,
   "logo_h": 100,
   "logo_opacity": 1.0,
-  "feedback_color_boost": 1.03,
-  "feedback_contrast_boost": 1.01,
+  "feedback_color_boost": 1.06,
+  "feedback_contrast_boost": 1.04,
   "feedback_sharpness_boost": 1.1
 }

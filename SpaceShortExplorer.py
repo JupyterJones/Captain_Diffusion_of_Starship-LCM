@@ -140,9 +140,9 @@ current_frame = 0
 frames_current = 300
 current_seed = 12345
 
-model_name = "dreamshaper_8.safetensors"
+model_name = "dreamshaper_8LCM.safetensors"
 vae_name = "vae-ft-mse-840000-ema-pruned.safetensors"
-lora1_name = "None"
+lora1_name = "more_details.safetensors"
 lora2_name = "None"
 lora3_name = "None"
 lora1_strength = 0.5
@@ -198,7 +198,7 @@ seed_guide_opacity = 0.1
 feedback_color_boost = 1.03
 feedback_contrast_boost = 1.01
 feedback_sharpness_boost = 1.10
-current_prompt = "A majestic rocket blasting off from a futuristic launchpad on Earth, giant plumes of fire and smoke, cinematic lighting, photorealistic, 8k resolution, dramatic clouds in the atmosphere"
+current_prompt = "Highly detailed Centered Science fiction image of a star-gate with semi transparent space creatures swimming in space similar to mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris <lora:more_details:.8>"
 original_starting_prompt = current_prompt
 rendering_prompt = "No active prompt yet."
 
@@ -374,13 +374,13 @@ zoom_mode = "in" # "in" or "out"
 zoom_shrink = 10
 zoom_blur = 8
 zoom_strength = 0.28
-zoom_guidance_scale = 7.0
-zoom_num_inference_steps = 25
+zoom_guidance_scale = 1.4
+zoom_num_inference_steps = 12
 
 roll_mode = "none" # "none", "right", "left"
 
 default_steps = 12
-default_cfg = 5.0
+default_cfg = 1.4
 
 # ============================================================
 # NEW: SPACESHIP MOVEMENT FUNCTION
@@ -3949,7 +3949,7 @@ HTML_UI = """
             <a href="/json_builder" target="_blank" style="flex: 1; text-align: center; color: #fff; background: #8b5cf6; padding: 6px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 11px; transition: background 0.2s;" onmouseover="this.style.background='#7c3aed'" onmouseout="this.style.background='#8b5cf6'">Open JSON Keyframe Builder</a>
             <a href="/templates_editor" target="_blank" style="flex: 1; text-align: center; color: #fff; background: #3b82f6; padding: 6px; border-radius: 4px; text-decoration: none; font-weight: bold; font-size: 11px; transition: background 0.2s;" onmouseover="this.style.background='#2563eb'" onmouseout="this.style.background='#3b82f6'">Open Templates Editor</a>
         </div>
-        <label>Base Prompt</label><textarea id="prompt" rows="3">You are an AI captain's log narrator. A deep-space explorer is traveling from Earth to the Kepler asteroid belt to mine platinum group metals. Write a first-person space captain's log that progresses frame-by-frame, describing space-travel maneuvers, cosmic scenery, and mining operations. Keep the tone scientific, awe-inspired, and focused on discovery.</textarea>
+        <label>Base Prompt</label><textarea id="prompt" rows="3">Highly detailed Centered Science fiction image of a star-gate with semi transparent space creatures swimming in space similar to mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris <lora:more_details:.8>, 8k resolution, dramatic clouds in the atmosphere</textarea>
         
         <!-- Ollama Prompt Enhancer integration -->
         <label>AI Prompt Enhancer (Ollama)</label>
@@ -3995,7 +3995,7 @@ HTML_UI = """
 
             <div style="flex:1;">
                 <label>CFG</label>
-                <input type="number" id="cfg" value="{{ default_cfg }}" step="0.5">
+                <input type="number" id="cfg" value="{{ default_cfg }}" step="0.1">
             </div>
         </div>
 
@@ -4003,7 +4003,7 @@ HTML_UI = """
         <div style="display:flex; gap:5px; margin-top:5px;">
             <div style="flex:1;">
                 <label>Denoise</label>
-                <input type="number" id="denoise" step="0.05" value="{{ denoise_current }}">
+                <input type="number" id="denoise" step="0.01" value="{{ denoise_current }}">
             </div>
 
             <div style="flex:1;">

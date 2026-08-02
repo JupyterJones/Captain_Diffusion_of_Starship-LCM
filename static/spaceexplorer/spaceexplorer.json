@@ -1,15 +1,15 @@
 {
-  "current_frame": 30,
-  "frames_total": 30,
+  "current_frame": 503,
+  "frames_total": 503,
   "seed": 12345,
-  "prompt": "A majestic flying saucer blasting off from a futuristic launchpad on Earth, giant plumes of fire and smoke, cinematic lighting, photorealistic, 8k resolution, dramatic clouds in the atmosphere, An artistic illustration featuring an extraterrestrial saucer hovering over a futuristic cityscape, with a bright light emanating from the center of the craft and illuminating the scene below",
-  "original_starting_prompt": "A majestic flying saucer blasting off from a futuristic launchpad on Earth, giant plumes of fire and smoke, cinematic lighting, photorealistic, 8k resolution, dramatic clouds in the atmosphere",
+  "prompt": "Highly detailed Centered Science fiction image of a star-gate with semi transparent space creatures swimming in space similar to mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris , 8k resolution, dramatic clouds in the atmosphere, A colorful, abstract painting of a room with tables and chairs, featuring vibrant green, yellow, red, and black hues <lora:more_details:.8>",
+  "original_starting_prompt": "Highly detailed Centered Science fiction image of a star-gate with semi transparent space creatures swimming in space similar to mythical sea monsters, surrounded with space, stars, planets, nebula, dust and space debris <lora:more_details:.8>, 8k resolution, dramatic clouds in the atmosphere",
   "negative_prompt": "low quality, blurry, bare breasts, nipples, large breasts, NSFW, deformed fingers",
   "model": "dreamshaper_8LCM.safetensors",
-  "lora1": "None",
+  "lora1": "more_details.safetensors",
   "lora2": "None",
   "lora3": "None",
-  "denoise": 0.35,
+  "denoise": 0.4,
   "keyframes": {
     "0": {
       "prompt": "A majestic flying saucer blasting off from a futuristic launchpad on Earth, giant plumes of fire and smoke, cinematic lighting, photorealistic, 8k resolution, dramatic clouds in the atmosphere",
@@ -35,20 +35,35 @@
       "prompt": "A majestic flying saucer cruising through a vast starfield, approaching an asteroid ",
       "denoise": 0.32,
       "seed_offset": 19
+    },
+    "150": {
+      "prompt": "Drone shot, Vincent Van Gogh, Ceramic, Ocean, Minimalism, oil, head Tangled web the metal chest body torso twisted wreckage an abandoned mechanical warrior the surrounding ruins cables head this mechanical monstrosity an abandoned mechanical warrior orange and olive green peeling paint the surrounding ruins wires this mechanical monstrosity apocalyptic ruins background cars Flickering fluorescent",
+      "denoise": 0.75,
+      "seed_offset": 57
+    },
+    "450": {
+      "prompt": "an open field, a farm house, tractor, barn",
+      "denoise": 0.5,
+      "seed_offset": 0
+    },
+    "480": {
+      "prompt": "inside a farm house, table, chairs, food on the table, you are home",
+      "denoise": 0.5,
+      "seed_offset": 0
     }
   },
   "injection_lines": [],
   "use_motion_zoom": true,
   "use_metadata_caption": false,
-  "z_s": 1.0,
-  "z_e": 1.01,
+  "z_s": 0.94,
+  "z_e": 50.0,
   "px_s": 0.5,
   "px_e": 0.5,
   "py_s": 0.5,
   "py_e": 0.5,
   "roll_mode": "none",
-  "steps": 10,
-  "cfg": 1.5,
+  "steps": 6,
+  "cfg": 1.4,
   "logo_filename": "None",
   "logo_x": 0,
   "logo_y": 0,
@@ -65,7 +80,7 @@
   "visual_director_interval": 25,
   "visual_director_model": "LlaVa:latest",
   "use_prompt_interpolation": true,
-  "use_video_interpolation": false,
+  "use_video_interpolation": true,
   "caption_font_size": 12,
   "caption_x": 10,
   "caption_y": 10,
@@ -83,14 +98,14 @@
   "zoom_mode": "in",
   "zoom_shrink": 10,
   "zoom_blur": 8,
-  "zoom_strength": 0.28,
-  "zoom_guidance_scale": 1.4,
-  "zoom_num_inference_steps": 10,
+  "zoom_strength": 0.34,
+  "zoom_guidance_scale": 1.3,
+  "zoom_num_inference_steps": 6,
   "use_seed_guide": false,
   "seed_guide_filename": "None",
   "seed_guide_x": 0,
   "seed_guide_y": 0,
   "seed_guide_w": 100,
   "seed_guide_h": 100,
-  "seed_guide_opacity": 0.1
+  "seed_guide_opacity": 0.0
 }

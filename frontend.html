@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimateDiff Offline Studio</title>
+    <!-- Modern Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(20, 30, 54, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-primary: #6366f1;
+            --accent-secondary: #a855f7;
+            --accent-glow: rgba(99, 102, 241, 0.15);
+            --success: #10b981;
+            --error: #ef4444;
+        }
+
+        /* Style Pills */
+        .style-pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            border-radius: 99px;
+            cursor: pointer;
+            user-select: none;
+            transition: all 0.2s ease;
+        }
+
+        .style-pill:hover {
+            background: rgba(99, 102, 241, 0.1);
+            border-color: rgba(99, 102, 241, 0.4);
+            color: #a5b4fc;
+        }
+
+        .style-pill.active {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: var(--accent-primary);
+            color: var(--text-primary);
+        }
+
+        /* Range Slider Styling */
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 6px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            outline: none;
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+            transition: transform 0.1s;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* Interactive Button States */
+        .action-btn.working {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b) !important;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3) !important;
+            cursor: not-allowed;
+            opacity: 0.85;
+        }
+
+        .action-btn.success-state {
+            background: linear-gradient(135deg, #10b981, #059669) !important;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+        }
+
+        .action-btn.fail-state {
+            background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4) !important;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #a3e635;
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7);
+            animation: pulse 1.6s infinite;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(163, 230, 53, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 6px rgba(163, 230, 53, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(163, 230, 53, 0);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.1) 0px, transparent 50%);
+            background-attachment: fixed;
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            padding: 24px;
+        }
+
+        header {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto 24px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+        }
+
+        .logo-section h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a5b4fc, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.15);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            color: #a5b4fc;
+            padding: 4px 10px;
+            border-radius: 99px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .main-layout {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 24px;
+            flex: 1;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .input-group {
+            margin-bottom: 16px;
+        }
+
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-size: 14px;
+            outline: none;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+        }
+
+        .action-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.35);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            margin-top: 8px;
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: none;
+            transform: none;
+        }
+
+        .danger-btn {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #f87171;
+            margin-top: 8px;
+        }
+
+        .danger-btn:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #f87171;
+        }
+
+        /* Output Canvas Area */
+        .workspace {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .output-viewport {
+            background: rgba(15, 23, 42, 0.4);
+            border: 2px dashed rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 480px;
+            overflow: hidden;
+        }
+
+        .placeholder-text {
+            color: var(--text-secondary);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .placeholder-text svg {
+            width: 48px;
+            height: 48px;
+            stroke: var(--text-secondary);
+            opacity: 0.5;
+        }
+
+        .output-media {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            display: none;
+        }
+
+        /* Loading SpinnerOverlay */
+        .overlay-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(11, 15, 25, 0.85);
+            backdrop-filter: blur(8px);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(99, 102, 241, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-primary);
+            border-bottom-color: var(--accent-secondary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .loading-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .loading-subtitle {
+            font-size: 13px;
+            color: var(--text-secondary);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+
+        /* Alerts & Status Notification */
+        .status-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 13px;
+            margin-bottom: 16px;
+            display: none;
+        }
+
+        .status-banner.success {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            display: flex;
+        }
+
+        .status-banner.error {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            color: #f87171;
+            display: flex;
+        }
+
+        /* Diagnostics dashboard */
+        .status-indicator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        
+        .status-pill {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+        .status-pill div:first-child {
+            color: var(--text-secondary);
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+        .status-pill div:last-child {
+            font-weight: 600;
+        }
+
+        /* SVG icons */
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-section">
+            <h1>
+                <svg class="icon" style="width:24px;height:24px;" viewBox="0 0 24 24"><path d="M23 12a11 11 0 1 1-22 0 11 11 0 0 1 22 0Z"/><path d="M12 7v10M7 12h10"/></svg>
+                AnimateDiff Studio
+            </h1>
+        </div>
+        <div class="badge">Local Offline Engine</div>
+    </header>
+
+    <div class="main-layout">
+        <div class="sidebar">
+            <!-- Server Connection -->
+            <div class="card">
+                <div class="card-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 .8-1.6V5.6a2 2 0 0 0-2-2H5.2a2 2 0 0 0-2 2v12.8a2 2 0 0 0 .8 1.6M12 3v18"/></svg>
+                    Server Connection
+                </div>
+                <div class="input-group">
+                    <label for="server">Engine Endpoint</label>
+                    <input id="server" value="http://127.0.0.1:5000" type="text" placeholder="http://127.0.0.1:5000">
+                </div>
+                <button class="action-btn" onclick="loadModels()">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l.73-1.19"/></svg>
+                    Connect & Load Models
+                </button>
+            </div>
+
+            <!-- Model Management -->
+            <div class="card">
+                <div class="card-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+                    Base Model & Motion
+                </div>
+                <div class="input-group">
+                    <label for="models">Active Checkpoint</label>
+                    <select id="models">
+                        <option value="">No models loaded</option>
+                    </select>
+                </div>
+                <button class="action-btn secondary-btn" id="btnSelectModel" onclick="selectModel()">Switch Base Model</button>
+
+                <div class="input-group" style="margin-top:20px;">
+                    <label for="motion">Motion Module</label>
+                    <select id="motion">
+                        <option value="">No motion modules scanned</option>
+                    </select>
+                </div>
+                <button class="action-btn secondary-btn" id="btnLoadMotion" onclick="loadMotion()">Inject Motion Module</button>
+            </div>
+
+            <!-- LoRA Manager -->
+            <div class="card">
+                <div class="card-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    LoRA Model Adapters
+                </div>
+                <div class="input-group">
+                    <label for="loras">Available LoRAs</label>
+                    <select id="loras">
+                        <option value="">No LoRAs scanned</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <label style="margin-bottom: 0;">LoRA Strength (Scale)</label>
+                        <span id="loraWeightVal" style="font-size: 12px; font-weight: 600; color: var(--accent-primary);">0.75</span>
+                    </div>
+                    <input id="loraWeight" type="range" min="0.0" max="2.0" step="0.05" value="0.75" style="cursor: pointer;" oninput="document.getElementById('loraWeightVal').innerText = this.value">
+                </div>
+                <button class="action-btn secondary-btn" id="btnLoadLora" onclick="loadLora()">Inject LoRA Weights</button>
+                <button class="action-btn secondary-btn danger-btn" id="btnUnloadLoras" onclick="unloadLoras()">Unload All LoRAs</button>
+            </div>
+
+            <!-- Generation Settings -->
+            <div class="card">
+                <div class="card-title">
+                    <svg class="icon" viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+                    Synthesis Configuration
+                </div>
+                <div class="input-group">
+                    <label for="prompt">Creative Prompt</label>
+                    <textarea id="prompt" rows="3" placeholder="a cat floating in deep space, hyperrealistic, high details..."></textarea>
+                    
+                    <!-- Prompt Style Modifiers -->
+                    <div style="margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px;">
+                        <span class="style-pill" onclick="applyStyle('Anime', ', anime style, studio ghibli, vibrant colors, hand-drawn digital art')">Anime</span>
+                        <span class="style-pill" onclick="applyStyle('Cinematic', ', cinematic lighting, photorealistic, 8k resolution, dramatic shadows, depth of field')">Cinematic</span>
+                        <span class="style-pill" onclick="applyStyle('3D Render', ', 3d render, octane render, clay model style, cute, soft lighting')">3D Render</span>
+                        <span class="style-pill" onclick="applyStyle('Cyberpunk', ', cyberpunk aesthetic, neon lights, futuristic city, glowing details, synthwave')">Cyberpunk</span>
+                        <span class="style-pill" onclick="applyStyle('Fantasy', ', fantasy art, ethereal, mystical, magical glow, concept art, detailed illustration')">Fantasy</span>
+                        <span class="style-pill" onclick="applyStyle('Oil Painting', ', classic oil painting, thick brushstrokes, textured canvas, fine art style')">Oil Painting</span>
+                        <span class="style-pill" onclick="clearStyle()" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.3); color: #f87171;">Clear Modifiers</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="steps">Steps</label>
+                        <input id="steps" type="number" value="8" min="1" max="150">
+                    </div>
+                    <div class="input-group">
+                        <label for="seed">Seed</label>
+                        <input id="seed" type="number" value="0">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-group">
+                        <label for="width">Width</label>
+                        <input id="width" type="number" value="512" step="64">
+                    </div>
+                    <div class="input-group">
+                        <label for="height">Height</label>
+                        <input id="height" type="number" value="512" step="64">
+                    </div>
+                </div>
+                
+                <div style="margin-top: 8px; display: flex; flex-direction: column; gap: 8px;">
+                    <button class="action-btn" id="btnGenerateImage" onclick="generateImage()">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                        Synthesize Image
+                    </button>
+                    <button class="action-btn" style="background: linear-gradient(135deg, #a855f7, #ec4899);" id="btnGenerateVideo" onclick="generateVideo()">
+                        <svg class="icon" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                        Synthesize Video
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="workspace">
+            <div id="statusBanner" class="status-banner"></div>
+            
+            <!-- Real-time Status Dashboard -->
+            <div class="status-indicator">
+                <div class="status-pill">
+                    <div>Base Model</div>
+                    <div id="statModel">None</div>
+                </div>
+                <div class="status-pill">
+                    <div>Motion</div>
+                    <div id="statMotion">None</div>
+                </div>
+                <div class="status-pill">
+                    <div>LoRAs Loaded</div>
+                    <div id="statLoras">0</div>
+                </div>
+                <div class="status-pill">
+                    <div>System RAM</div>
+                    <div id="statRam">--</div>
+                </div>
+            </div>
+
+            <div class="output-viewport">
+                <!-- Loading State overlay -->
+                <div id="loader" class="overlay-loader">
+                    <div class="spinner"></div>
+                    <div id="loaderTitle" class="loading-title">Synthesizing Creative Canvas...</div>
+                    <div id="loaderSubtitle" class="loading-subtitle">Denoising Latents on CPU (takes several minutes for videos)</div>
+                </div>
+
+                <!-- Placeholder Empty State -->
+                <div id="placeholder" class="placeholder-text">
+                    <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                    <div>
+                        <p style="font-weight:600; margin-bottom:4px;">No Media Generated</p>
+                        <p style="font-size:13px; color:var(--text-secondary);">Configure inputs and start synthesis to view canvas output</p>
+                    </div>
+                </div>
+
+                <!-- Media views -->
+                <img id="img" class="output-media" alt="Generated Canvas">
+                <video id="vid" class="output-media" controls autoplay loop muted></video>
+            </div>
+
+            <!-- Live Terminal Log Widget -->
+            <div class="card" style="margin-top: 24px; padding: 16px; border-color: rgba(255, 255, 255, 0.08); background: rgba(10, 10, 12, 0.5);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <div style="display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; color: var(--text-primary);">
+                        <span class="pulse-dot"></span>
+                        Live Server Console Log
+                    </div>
+                    <button class="action-btn secondary-btn" style="margin: 0; padding: 4px 12px; font-size: 12px; width: auto;" onclick="toggleConsoleLogs()" id="btnToggleLogs">Hide Logs</button>
+                </div>
+                <div id="terminalConsole" style="background: #050507; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 12px; font-family: 'Courier New', Courier, monospace; font-size: 13px; color: #a3e635; height: 180px; overflow-y: auto; white-space: pre-wrap; line-height: 1.5; box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);">[system] Initializing console logging feed...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const getVal = (id) => document.getElementById(id).value;
+        const server = () => getVal("server");
+        const show = (el) => el.style.display = 'block';
+        const hide = (el) => el.style.display = 'none';
+
+        let progressInterval = null;
+        let diagnosticsInterval = null;
+
+        function notify(message, isError = false) {
+            const banner = document.getElementById("statusBanner");
+            banner.className = `status-banner ${isError ? 'error' : 'success'}`;
+            banner.innerText = message;
+            show(banner);
+            setTimeout(() => {
+                hide(banner);
+            }, 6000);
+        }
+
+        async function startProgressPolling() {
+            if (progressInterval) clearInterval(progressInterval);
+            progressInterval = setInterval(async () => {
+                try {
+                    const res = await fetch(server() + "/api/progress");
+                    const data = await res.json();
+                    if (data.generating) {
+                        document.getElementById("loaderSubtitle").innerText = 
+                            `Step ${data.step}/${data.total} (${data.percent}%) - CPU Denoising...`;
+                    }
+                } catch (e) {
+                    console.error("Progress check failed", e);
+                }
+            }, 1500);
+        }
+
+        function stopProgressPolling() {
+            if (progressInterval) {
+                clearInterval(progressInterval);
+                progressInterval = null;
+            }
+        }
+
+        async function startDiagnosticsPolling() {
+            if (diagnosticsInterval) clearInterval(diagnosticsInterval);
+            pollDiagnostics(); // Immediate first poll
+            diagnosticsInterval = setInterval(pollDiagnostics, 5000);
+        }
+
+        async function pollDiagnostics() {
+            try {
+                const res = await fetch(server() + "/api/status");
+                const data = await res.json();
+                document.getElementById("statModel").innerText = data.active_model;
+                document.getElementById("statMotion").innerText = data.active_motion;
+                document.getElementById("statLoras").innerText = data.active_loras.length;
+                document.getElementById("statRam").innerText = `${data.ram.percent}% (${data.ram.used_gb}G / ${data.ram.total_gb}G)`;
+            } catch (e) {
+                console.warn("Diagnostics status offline");
+            }
+        }
+
+        let logsInterval = null;
+        let logsVisible = true;
+
+        async function startLogsPolling() {
+            if (logsInterval) clearInterval(logsInterval);
+            pollLogs(); // Immediate first poll
+            logsInterval = setInterval(pollLogs, 2000);
+        }
+
+        async function pollLogs() {
+            if (!logsVisible) return;
+            try {
+                const res = await fetch(server() + "/api/logs");
+                if (!res.ok) throw new Error("Offline");
+                const data = await res.json();
+                const consoleEl = document.getElementById("terminalConsole");
+                if (data.logs && data.logs.length > 0) {
+                    consoleEl.innerText = data.logs.join("\n");
+                    // Auto-scroll to bottom
+                    consoleEl.scrollTop = consoleEl.scrollHeight;
+                } else {
+                    consoleEl.innerText = "[system] Waiting for new log messages...";
+                }
+            } catch (e) {
+                document.getElementById("terminalConsole").innerText = "[system] Connection to server log feed offline...";
+            }
+        }
+
+        function toggleConsoleLogs() {
+            const consoleEl = document.getElementById("terminalConsole");
+            const btn = document.getElementById("btnToggleLogs");
+            if (logsVisible) {
+                hide(consoleEl);
+                btn.innerText = "Show Logs";
+                logsVisible = false;
+            } else {
+                show(consoleEl);
+                btn.innerText = "Hide Logs";
+                logsVisible = true;
+                pollLogs(); // Immediate update when showing
+            }
+            localStorage.setItem("agy_logs_visible", logsVisible);
+        }
+
+        function initLogsVisibility() {
+            const saved = localStorage.getItem("agy_logs_visible");
+            if (saved === "false") {
+                const consoleEl = document.getElementById("terminalConsole");
+                const btn = document.getElementById("btnToggleLogs");
+                hide(consoleEl);
+                btn.innerText = "Show Logs";
+                logsVisible = false;
+            } else {
+                logsVisible = true;
+            }
+        }
+
+        async function loadModels() {
+            try {
+                const res = await fetch(server() + "/api/models");
+                if (!res.ok) throw new Error("HTTP error " + res.status);
+                const data = await res.json();
+                
+                // 1. Populate Base Checkpoints select
+                const selectModels = document.getElementById("models");
+                selectModels.innerHTML = "";
+                data.models.forEach(model => {
+                    const opt = document.createElement("option");
+                    opt.value = model;
+                    opt.innerText = model;
+                    if (model === data.active_model) opt.selected = true;
+                    selectModels.appendChild(opt);
+                });
+                
+                // 2. Populate Motion modules select
+                const selectMotion = document.getElementById("motion");
+                selectMotion.innerHTML = "";
+                
+                // Empty option to allow disabling motion adapter
+                const emptyMotion = document.createElement("option");
+                emptyMotion.value = "";
+                emptyMotion.innerText = "None (Disable Motion)";
+                if (!data.active_motion) emptyMotion.selected = true;
+                selectMotion.appendChild(emptyMotion);
+                
+                data.motions.forEach(motion => {
+                    const opt = document.createElement("option");
+                    opt.value = motion;
+                    opt.innerText = motion;
+                    if (motion === data.active_motion) opt.selected = true;
+                    selectMotion.appendChild(opt);
+                });
+
+                // 3. Populate LoRAs select
+                const selectLoras = document.getElementById("loras");
+                selectLoras.innerHTML = "";
+                if (data.loras.length === 0) {
+                    const opt = document.createElement("option");
+                    opt.value = "";
+                    opt.innerText = "No LoRAs scanned";
+                    selectLoras.appendChild(opt);
+                } else {
+                    data.loras.forEach(lora => {
+                        const opt = document.createElement("option");
+                        opt.value = lora;
+                        opt.innerText = lora;
+                        selectLoras.appendChild(opt);
+                    });
+                }
+                
+                notify("Successfully connected to engine and loaded model repositories.");
+                loadInputs();
+                startDiagnosticsPolling();
+                startLogsPolling();
+            } catch (err) {
+                notify("Failed to connect to engine: " + err.message, true);
+            }
+        }
+
+        const inputIds = ["prompt", "steps", "seed", "width", "height", "models", "motion", "loras", "loraWeight"];
+
+        function saveInputs() {
+            inputIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    localStorage.setItem("agy_" + id, el.value);
+                }
+            });
+        }
+
+        function loadInputs() {
+            inputIds.forEach(id => {
+                const val = localStorage.getItem("agy_" + id);
+                if (val !== null) {
+                    const el = document.getElementById(id);
+                    if (el) {
+                        el.value = val;
+                        if (id === "loraWeight") {
+                            const lbl = document.getElementById("loraWeightVal");
+                            if (lbl) lbl.innerText = val;
+                        }
+                    }
+                }
+            });
+        }
+        
+        function setupInputPersistence() {
+            inputIds.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener("input", saveInputs);
+                    el.addEventListener("change", saveInputs);
+                }
+            });
+        }
+
+        function setButtonState(id, state, textOverride = "") {
+            const el = document.getElementById(id);
+            if (!el) return;
+            if (!el.dataset.originalHtml) {
+                el.dataset.originalHtml = el.innerHTML;
+            }
+            el.classList.remove("working", "success-state", "fail-state");
+            el.disabled = false;
+            
+            if (state === "working") {
+                el.classList.add("working");
+                if (textOverride) el.innerText = textOverride;
+                el.disabled = true;
+            } else if (state === "success") {
+                el.classList.add("success-state");
+                el.innerText = textOverride || "Success!";
+                setTimeout(() => {
+                    el.classList.remove("success-state");
+                    el.innerHTML = el.dataset.originalHtml;
+                }, 3000);
+            } else if (state === "fail") {
+                el.classList.add("fail-state");
+                el.innerText = textOverride || "Failed!";
+                setTimeout(() => {
+                    el.classList.remove("fail-state");
+                    el.innerHTML = el.dataset.originalHtml;
+                }, 3000);
+            } else {
+                el.innerHTML = el.dataset.originalHtml;
+            }
+        }
+
+        async function selectModel() {
+            const model = getVal("models");
+            if (!model) {
+                notify("Please select a valid model checkpoint first.", true);
+                setButtonState("btnSelectModel", "fail", "Select a Model!");
+                return;
+            }
+            
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = "Swapping Model Checkpoint...";
+            document.getElementById("loaderSubtitle").innerText = "Clearing RAM and loading weights component-by-component...";
+            show(loader);
+            setButtonState("btnSelectModel", "working", "Swapping Model...");
+
+            try {
+                const res = await fetch(server() + "/api/select-model", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ model })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                notify("Active checkpoint successfully changed to: " + model);
+                setButtonState("btnSelectModel", "success", "Swapped!");
+                pollDiagnostics();
+            } catch (err) {
+                notify("Failed to swap checkpoint: " + err.message, true);
+                setButtonState("btnSelectModel", "fail", "Swap Failed!");
+            } finally {
+                hide(loader);
+            }
+        }
+
+        async function loadMotion() {
+            const motion = getVal("motion");
+            
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = motion ? "Injecting Motion Adapter..." : "Removing Motion Adapter...";
+            document.getElementById("loaderSubtitle").innerText = "Loading weights and rebuilding pipeline (releasing memory)...";
+            show(loader);
+            setButtonState("btnLoadMotion", "working", motion ? "Loading Adapter..." : "Clearing Adapter...");
+
+            try {
+                const res = await fetch(server() + "/api/load-motion", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ motion })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                notify(motion ? "Motion module successfully injected into Stable Diffusion." : "Motion adapter cleared. Running standard Stable Diffusion.");
+                setButtonState("btnLoadMotion", "success", motion ? "Injected!" : "Cleared!");
+                pollDiagnostics();
+            } catch (err) {
+                notify("Failed to update motion module: " + err.message, true);
+                setButtonState("btnLoadMotion", "fail", "Failed!");
+            } finally {
+                hide(loader);
+            }
+        }
+
+        let activeStyleKeyword = "";
+
+        function applyStyle(name, keyword) {
+            const promptEl = document.getElementById("prompt");
+            let basePrompt = promptEl.value;
+
+            // Remove any previously appended activeStyleKeyword
+            if (activeStyleKeyword && basePrompt.endsWith(activeStyleKeyword)) {
+                basePrompt = basePrompt.substring(0, basePrompt.length - activeStyleKeyword.length);
+            }
+
+            // Remove highlight from other pills
+            document.querySelectorAll(".style-pill").forEach(pill => {
+                if (pill.innerText === name) {
+                    pill.classList.add("active");
+                } else {
+                    pill.classList.remove("active");
+                }
+            });
+
+            activeStyleKeyword = keyword;
+            promptEl.value = basePrompt + activeStyleKeyword;
+        }
+
+        function clearStyle() {
+            const promptEl = document.getElementById("prompt");
+            let basePrompt = promptEl.value;
+
+            if (activeStyleKeyword && basePrompt.endsWith(activeStyleKeyword)) {
+                promptEl.value = basePrompt.substring(0, basePrompt.length - activeStyleKeyword.length);
+            }
+
+            activeStyleKeyword = "";
+            document.querySelectorAll(".style-pill").forEach(pill => {
+                pill.classList.remove("active");
+            });
+        }
+
+        async function loadLora() {
+            const lora = getVal("loras");
+            if (!lora) {
+                notify("No valid LoRA selected.", true);
+                setButtonState("btnLoadLora", "fail", "Select a LoRA!");
+                return;
+            }
+            const weight = parseFloat(document.getElementById("loraWeight").value) || 1.0;
+
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = "Injecting LoRA Weights...";
+            document.getElementById("loaderSubtitle").innerText = `Applying LoRA adapter to text encoder & UNet at strength ${weight}...`;
+            show(loader);
+            setButtonState("btnLoadLora", "working", "Injecting...");
+
+            try {
+                const res = await fetch(server() + "/api/load-lora", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ lora, weight })
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                notify(`Successfully injected LoRA adapter: ${lora} (Strength: ${weight})`);
+                setButtonState("btnLoadLora", "success", "Injected!");
+                pollDiagnostics();
+            } catch (err) {
+                notify("Failed to inject LoRA: " + err.message, true);
+                setButtonState("btnLoadLora", "fail", "Injection Failed!");
+            } finally {
+                hide(loader);
+            }
+        }
+
+        async function unloadLoras() {
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = "Unloading LoRAs...";
+            document.getElementById("loaderSubtitle").innerText = "Clearing loaded adapters from text encoder & UNet...";
+            show(loader);
+            setButtonState("btnUnloadLoras", "working", "Unloading...");
+
+            try {
+                const res = await fetch(server() + "/api/unload-loras", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"}
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                notify("Successfully unloaded all active LoRAs.");
+                setButtonState("btnUnloadLoras", "success", "Unloaded!");
+                pollDiagnostics();
+            } catch (err) {
+                notify("Failed to unload LoRAs: " + err.message, true);
+                setButtonState("btnUnloadLoras", "fail", "Unload Failed!");
+            } finally {
+                hide(loader);
+            }
+        }
+
+        async function generateImage() {
+            const prompt = getVal("prompt");
+            if (!prompt) {
+                notify("A creative prompt is required for image generation.", true);
+                setButtonState("btnGenerateImage", "fail", "Write a Prompt!");
+                return;
+            }
+
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = "Synthesizing Canvas Image...";
+            document.getElementById("loaderSubtitle").innerText = "Denoising latents (single-frame preview)...";
+            show(loader);
+            startProgressPolling();
+            setButtonState("btnGenerateImage", "working", "Rendering Image...");
+
+            const payload = {
+                prompt,
+                steps: parseInt(getVal("steps")),
+                seed: parseInt(getVal("seed")),
+                width: parseInt(getVal("width")),
+                height: parseInt(getVal("height"))
+            };
+
+            const imgEl = document.getElementById("img");
+            const vidEl = document.getElementById("vid");
+            const placeholder = document.getElementById("placeholder");
+
+            try {
+                const res = await fetch(server() + "/api/generate", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                
+                imgEl.src = data.image;
+                show(imgEl);
+                hide(vidEl);
+                hide(placeholder);
+                notify("Image synthesized successfully.");
+                setButtonState("btnGenerateImage", "success", "Generated!");
+            } catch (err) {
+                notify("Inference failed: " + err.message, true);
+                setButtonState("btnGenerateImage", "fail", "Failed!");
+            } finally {
+                stopProgressPolling();
+                hide(loader);
+                pollDiagnostics();
+            }
+        }
+
+        async function generateVideo() {
+            const prompt = getVal("prompt");
+            if (!prompt) {
+                notify("A creative prompt is required for video generation.", true);
+                setButtonState("btnGenerateVideo", "fail", "Write a Prompt!");
+                return;
+            }
+
+            const loader = document.getElementById("loader");
+            document.getElementById("loaderTitle").innerText = "Synthesizing Motion Canvas...";
+            document.getElementById("loaderSubtitle").innerText = "Denoising 16 frames in parallel (takes several minutes on CPU)...";
+            show(loader);
+            startProgressPolling();
+            setButtonState("btnGenerateVideo", "working", "Rendering Video...");
+
+            const payload = {
+                prompt,
+                steps: parseInt(getVal("steps")),
+                seed: parseInt(getVal("seed")),
+                width: parseInt(getVal("width")),
+                height: parseInt(getVal("height")),
+                frames: 16,
+                fps: 10
+            };
+
+            const imgEl = document.getElementById("img");
+            const vidEl = document.getElementById("vid");
+            const placeholder = document.getElementById("placeholder");
+
+            try {
+                const res = await fetch(server() + "/api/generate_video", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+                
+                const blob = new Blob(
+                    [Uint8Array.from(atob(data.video), c => c.charCodeAt(0))],
+                    {type: "video/mp4"}
+                );
+                const url = URL.createObjectURL(blob);
+                
+                vidEl.src = url;
+                show(vidEl);
+                hide(imgEl);
+                hide(placeholder);
+                notify("Video synthesized and compiled successfully.");
+                setButtonState("btnGenerateVideo", "success", "Completed!");
+            } catch (err) {
+                notify("Video synthesis failed: " + err.message, true);
+                setButtonState("btnGenerateVideo", "fail", "Render Failed!");
+            } finally {
+                stopProgressPolling();
+                hide(loader);
+                pollDiagnostics();
+            }
+        }
+
+        // Auto-attempt connection on page load
+        window.addEventListener("load", () => {
+            initLogsVisibility();
+            loadModels();
+            setupInputPersistence();
+        });
+    </script>
+</body>
+</html>
