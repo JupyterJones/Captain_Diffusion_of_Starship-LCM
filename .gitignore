@@ -16,3 +16,15 @@ config.json
 Thumbs.db
 venv/
 .venv/
+venv/lib/python3.10/site-packages/torch/lib/libtorch_cpu.so
+venv/lib/python3.10/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2
+.git/objects/6c/ae2a25ee2caa6fc721f880cdf2fb430c18fa86
+.git/objects/12/9c69258ac90d55734d271c9019b277156e2a62
+.git/objects/19/277e058f6306af3576db5530c48c0c218d1aa9
+.git/objects/3d/38d5b25d226ea38e94a9ac7399e14e1b875b21
+.git/objects/pack/pack-468ea514097405f005deb780e24a5c4bbbd3beb3.pack
+static/spaceexplorer/smooth10.mp4
+static/spaceexplorer/Bsmooth10.mp4
+static/spaceexplorer/temp/AI Flights Beyond Time and Space |AI Art Video by FlaskArchitect.mp4
+static/spaceexplorer/temp/final_output3.mp4
+static/streamer/AI Was Looking Out The Viewport Using Stable Diffusion by FlaskArchitect.mp4
