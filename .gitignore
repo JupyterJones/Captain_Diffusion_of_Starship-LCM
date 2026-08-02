@@ -28,3 +28,6 @@ static/spaceexplorer/Bsmooth10.mp4
 static/spaceexplorer/temp/AI Flights Beyond Time and Space |AI Art Video by FlaskArchitect.mp4
 static/spaceexplorer/temp/final_output3.mp4
 static/streamer/AI Was Looking Out The Viewport Using Stable Diffusion by FlaskArchitect.mp4
+
+# Added by fix_git.py
+*.mp4
